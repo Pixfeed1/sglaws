@@ -1070,6 +1070,24 @@ ul, ol { list-style: none; }
   color: var(--white);
 }
 
+.error-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.error-page__link--ghost {
+  border-color: var(--grey-200);
+  color: var(--grey-500);
+}
+
+.error-page__link--ghost:hover {
+  background: var(--grey-500);
+  border-color: var(--grey-500);
+  color: var(--white);
+}
+
 /* =============================================
    FOOTER
 ============================================= */

@@ -98,7 +98,7 @@ $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'large') : 'http
         </h2>
         <p class="team__role r"><?php echo esc_html(sg_text('avocat_subtitle', 'Avocat au Barreau de Lyon')); ?></p>
         <div class="team__bio r">
-          <?php echo wp_kses_post(sg_text('avocat_bio', '<p>Passionné par le droit et animé par un sens profond de la justice, Me Seri Gueffie met son expertise au service de clients confrontés à des enjeux juridiques complexes.</p><p>Son approche allie rigueur analytique et vision stratégique, avec une attention constante portée à la dimension humaine de chaque affaire.</p>')); ?>
+          <?php echo wp_kses_post(sg_text('avocat_bio', '<p>Passionné par le droit et animé par un sens profond de la justice, Me Seri Gueffie met son expertise au service de clients confrontés à des enjeux juridiques complexes.</p><p>Son approche allie rigueur analytique et vision stratégique, avec une attention constante portée à la dimension humaine de chaque affaire. Il défend avec conviction les intérêts de ses clients devant toutes les juridictions.</p>')); ?>
         </div>
         <div class="team__meta r">
           <div class="team__meta-row">

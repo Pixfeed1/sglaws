@@ -95,25 +95,22 @@ function sg_render_textes_page() {
             <div id="sg-tab-accueil" class="sg-tab-content" style="display:none;">
                 <h3>Hero</h3>
                 <table class="form-table">
-                    <tr><th>Sous-titre</th><td><input type="text" name="sg_site_texts[home_hero_tag]" value="<?php echo $t('home_hero_tag', 'Cabinet d\'avocat · Lyon'); ?>" class="large-text"></td></tr>
-                    <tr><th>Titre ligne 1</th><td><input type="text" name="sg_site_texts[home_hero_l1]" value="<?php echo $t('home_hero_l1', 'La rigueur au service'); ?>" class="large-text"></td></tr>
-                    <tr><th>Titre ligne 2</th><td><input type="text" name="sg_site_texts[home_hero_l2]" value="<?php echo $t('home_hero_l2', 'de vos droits'); ?>" class="large-text"></td></tr>
-                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_hero_intro]" rows="3" class="large-text"><?php echo $ta('home_hero_intro', 'Me Seri Gueffie vous accompagne avec engagement et détermination dans la défense de vos intérêts.'); ?></textarea></td></tr>
-                    <tr><th>Bouton principal</th><td><input type="text" name="sg_site_texts[home_hero_btn1]" value="<?php echo $t('home_hero_btn1', 'Prendre rendez-vous'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Bouton secondaire</th><td><input type="text" name="sg_site_texts[home_hero_btn2]" value="<?php echo $t('home_hero_btn2', 'Découvrir le cabinet'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Sous-titre</th><td><input type="text" name="sg_site_texts[home_hero_tag]" value="<?php echo $t('home_hero_tag', 'Avocat au Barreau de Lyon'); ?>" class="large-text"></td></tr>
+                    <tr><th>Titre principal</th><td><input type="text" name="sg_site_texts[home_hero_l1]" value="<?php echo $t('home_hero_l1', 'Seri Gueffie'); ?>" class="large-text"><p class="description">C'est le titre H1 du site. Il est affiché en grand sur une seule ligne, à la manière d'un logo.</p></td></tr>
+                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_hero_intro]" rows="3" class="large-text"><?php echo $ta('home_hero_intro', 'Une approche rigoureuse, humaine et déterminée au service de la défense de vos droits et de vos intérêts.'); ?></textarea></td></tr>
                 </table>
 
                 <h3>Section Expertise</h3>
                 <table class="form-table">
-                    <tr><th>Tag</th><td><input type="text" name="sg_site_texts[home_exp_tag]" value="<?php echo $t('home_exp_tag', 'Domaines d\'intervention'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[home_exp_title]" value="<?php echo $t('home_exp_title', 'Une expertise pluridisciplinaire'); ?>" class="large-text"></td></tr>
-                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_exp_intro]" rows="2" class="large-text"><?php echo $ta('home_exp_intro', 'Le cabinet intervient dans les principaux domaines du droit pour offrir un accompagnement complet.'); ?></textarea></td></tr>
+                    <tr><th>Tag</th><td><input type="text" name="sg_site_texts[home_exp_tag]" value="<?php echo $t('home_exp_tag', 'Expertise'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[home_exp_title]" value="<?php echo $t('home_exp_title', 'Domaines d\'intervention'); ?>" class="large-text"></td></tr>
+                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_exp_intro]" rows="2" class="large-text"><?php echo $ta('home_exp_intro', 'Le cabinet déploie ses compétences pour la protection des intérêts de ses clients dans l\'ensemble des domaines du droit, avec une exigence constante d\'efficacité.'); ?></textarea></td></tr>
                 </table>
 
                 <h3>Section Contact</h3>
                 <table class="form-table">
-                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[home_contact_title]" value="<?php echo $t('home_contact_title', 'Échangeons sur votre situation'); ?>" class="large-text"></td></tr>
-                    <tr><th>Texte</th><td><textarea name="sg_site_texts[home_contact_text]" rows="2" class="large-text"><?php echo $ta('home_contact_text', 'Chaque situation est unique. Prenez contact pour une première analyse confidentielle.'); ?></textarea></td></tr>
+                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[home_contact_title]" value="<?php echo $t('home_contact_title', 'Prenons<br><em>rendez-vous</em>'); ?>" class="large-text"><p class="description">Balises autorisées : &lt;br&gt; pour passer à la ligne, &lt;em&gt; pour l'italique.</p></td></tr>
+                    <tr><th>Texte</th><td><textarea name="sg_site_texts[home_contact_text]" rows="2" class="large-text"><?php echo $ta('home_contact_text', 'Pour toute demande de consultation ou d\'information, n\'hésitez pas à contacter le cabinet. Chaque situation mérite une attention particulière.'); ?></textarea></td></tr>
                     <tr><th>Consentement RGPD</th><td><textarea name="sg_site_texts[home_contact_rgpd]" rows="2" class="large-text"><?php echo $ta('home_contact_rgpd', 'En envoyant ce formulaire, vous acceptez le traitement de vos données conformément à notre politique de confidentialité.'); ?></textarea></td></tr>
                 </table>
 
@@ -129,7 +126,7 @@ function sg_render_textes_page() {
                 <h3>Section Le Cabinet</h3>
                 <table class="form-table">
                     <tr><th>Tag</th><td><input type="text" name="sg_site_texts[home_about_tag]" value="<?php echo $t('home_about_tag', 'Le Cabinet'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_about_intro]" rows="3" class="large-text"><?php echo $ta('home_about_intro', 'Le cabinet de Me Seri Gueffie est une structure indépendante dédiée à la défense et au conseil juridique.'); ?></textarea><p class="description">Balises HTML autorisées : &lt;em&gt; pour l\'italique.</p></td></tr>
+                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_about_intro]" rows="3" class="large-text"><?php echo $ta('home_about_intro', 'Le cabinet de Me Seri Gueffie est une structure indépendante dédiée à la défense et au conseil juridique. Chaque client bénéficie d\'un accompagnement <em>global, personnalisé et confidentiel</em>, avec une exigence constante d\'efficacité et de résultat.'); ?></textarea><p class="description">Balises HTML autorisées : &lt;em&gt; pour l\'italique.</p></td></tr>
                 </table>
 
                 <h3>Section Description</h3>
@@ -195,7 +192,7 @@ function sg_render_textes_page() {
                 <h3>Expertise (fond noir)</h3>
                 <table class="form-table">
                     <tr><th>Titre</th><td><input type="text" name="sg_site_texts[land_exp_title]" value="<?php echo $t('land_exp_title', 'Une pratique <em>exclusivement</em> dédiée au droit des assurances'); ?>" class="large-text"><p class="description">Balise &lt;em&gt; pour l'italique. La liste des domaines est reprise de l'onglet Expertise.</p></td></tr>
-                    <tr><th>Texte</th><td><textarea name="sg_site_texts[land_exp_text]" rows="3" class="large-text"><?php echo $ta('land_exp_text', 'Me Seri Gueffie consacre l\'intégralité de son activité au droit des assurances. Cette spécialisation exclusive garantit une maîtrise approfondie des mécanismes assurantiels.'); ?></textarea></td></tr>
+                    <tr><th>Texte</th><td><textarea name="sg_site_texts[land_exp_text]" rows="3" class="large-text"><?php echo $ta('land_exp_text', 'Me Seri Gueffie consacre l\'intégralité de son activité au droit des assurances. Cette spécialisation exclusive garantit une maîtrise approfondie des mécanismes assurantiels, de la jurisprudence applicable et des stratégies de défense les plus efficaces.'); ?></textarea></td></tr>
                 </table>
 
                 <h3>Approche (3 étapes)</h3>
@@ -215,8 +212,8 @@ function sg_render_textes_page() {
 
                 <h3>Section Contact (landing)</h3>
                 <table class="form-table">
-                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[land_contact_title]" value="<?php echo $t('land_contact_title', 'Défendons vos intérêts'); ?>" class="large-text"></td></tr>
-                    <tr><th>Texte</th><td><textarea name="sg_site_texts[land_contact_text]" rows="2" class="large-text"><?php echo $ta('land_contact_text', 'Chaque situation mérite une analyse approfondie. Prenez rendez-vous pour une première consultation.'); ?></textarea></td></tr>
+                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[land_contact_title]" value="<?php echo $t('land_contact_title', 'Défendons vos<br><em>intérêts</em>'); ?>" class="large-text"><p class="description">Balises autorisées : &lt;br&gt; pour passer à la ligne, &lt;em&gt; pour l'italique.</p></td></tr>
+                    <tr><th>Texte</th><td><textarea name="sg_site_texts[land_contact_text]" rows="2" class="large-text"><?php echo $ta('land_contact_text', 'Chaque situation mérite une analyse approfondie. Prenez rendez-vous pour une première consultation et exposez votre dossier en toute confidentialité.'); ?></textarea></td></tr>
                 </table>
 
                 <h3>Boutons et libellés</h3>
@@ -234,8 +231,7 @@ function sg_render_textes_page() {
             <div id="sg-tab-expertise" class="sg-tab-content" style="display:none;">
                 <h3>Page liste</h3>
                 <table class="form-table">
-                    <tr><th>Titre de page</th><td><input type="text" name="sg_site_texts[exp_title]" value="<?php echo $t('exp_title', 'Domaines d\'intervention'); ?>" class="large-text"></td></tr>
-                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[exp_intro]" rows="2" class="large-text"><?php echo $ta('exp_intro', 'Le cabinet déploie ses compétences pour la protection des intérêts de ses clients.'); ?></textarea></td></tr>
+                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[exp_intro]" rows="2" class="large-text"><?php echo $ta('exp_intro', 'Le cabinet déploie ses compétences pour la protection des intérêts de ses clients dans l\'ensemble des domaines du droit, avec une exigence constante d\'efficacité.'); ?></textarea></td></tr>
                 </table>
                 <?php for ($i = 1; $i <= 6; $i++) : ?>
                 <h3>Domaine <?php echo $i; ?></h3>
@@ -301,11 +297,10 @@ function sg_render_textes_page() {
             <!-- AVOCAT -->
             <div id="sg-tab-avocat" class="sg-tab-content" style="display:none;">
                 <table class="form-table">
-                    <tr><th>Titre de page</th><td><input type="text" name="sg_site_texts[avocat_title]" value="<?php echo $t('avocat_title', 'Me Seri Gueffie'); ?>" class="large-text"></td></tr>
-                    <tr><th>Prénom (hero accueil)</th><td><input type="text" name="sg_site_texts[avocat_prenom]" value="<?php echo $t('avocat_prenom', 'Me Seri'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Nom (hero accueil)</th><td><input type="text" name="sg_site_texts[avocat_nom]" value="<?php echo $t('avocat_nom', 'Gueffie'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Prénom</th><td><input type="text" name="sg_site_texts[avocat_prenom]" value="<?php echo $t('avocat_prenom', 'Me Seri'); ?>" class="regular-text"><p class="description">Première ligne du titre de la page Avocat, et du bloc Avocat sur l'accueil.</p></td></tr>
+                    <tr><th>Nom</th><td><input type="text" name="sg_site_texts[avocat_nom]" value="<?php echo $t('avocat_nom', 'Gueffie'); ?>" class="regular-text"><p class="description">Seconde ligne, affichée en italique.</p></td></tr>
                     <tr><th>Sous-titre</th><td><input type="text" name="sg_site_texts[avocat_subtitle]" value="<?php echo $t('avocat_subtitle', 'Avocat au Barreau de Lyon'); ?>" class="large-text"></td></tr>
-                    <tr><th>Biographie</th><td><textarea name="sg_site_texts[avocat_bio]" rows="6" class="large-text"><?php echo $ta('avocat_bio', 'Inscrit au Barreau de Lyon depuis 2021, Me Seri Gueffie consacre l\'intégralité de son activité au droit des assurances.'); ?></textarea><p class="description">Balises HTML autorisées : &lt;p&gt;, &lt;em&gt;, &lt;strong&gt;</p></td></tr>
+                    <tr><th>Biographie</th><td><textarea name="sg_site_texts[avocat_bio]" rows="6" class="large-text"><?php echo $ta('avocat_bio', '<p>Passionné par le droit et animé par un sens profond de la justice, Me Seri Gueffie met son expertise au service de clients confrontés à des enjeux juridiques complexes.</p><p>Son approche allie rigueur analytique et vision stratégique, avec une attention constante portée à la dimension humaine de chaque affaire. Il défend avec conviction les intérêts de ses clients devant toutes les juridictions.</p>'); ?></textarea><p class="description">Balises HTML autorisées : &lt;p&gt;, &lt;em&gt;, &lt;strong&gt;</p></td></tr>
                     <tr><th>Barreau</th><td><input type="text" name="sg_site_texts[avocat_barreau]" value="<?php echo $t('avocat_barreau', 'Barreau de Lyon'); ?>" class="regular-text"></td></tr>
                     <tr><th>Serment</th><td><input type="text" name="sg_site_texts[avocat_serment]" value="<?php echo $t('avocat_serment', '6 décembre 2021'); ?>" class="regular-text"></td></tr>
                     <tr><th>Spécialité</th><td><input type="text" name="sg_site_texts[avocat_specialite]" value="<?php echo $t('avocat_specialite', 'Droit des assurances'); ?>" class="regular-text"></td></tr>
@@ -317,8 +312,7 @@ function sg_render_textes_page() {
             <!-- CONTACT -->
             <div id="sg-tab-contact" class="sg-tab-content" style="display:none;">
                 <table class="form-table">
-                    <tr><th>Titre de page</th><td><input type="text" name="sg_site_texts[contact_title]" value="<?php echo $t('contact_title', 'Prenons contact'); ?>" class="large-text"></td></tr>
-                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[contact_intro]" rows="2" class="large-text"><?php echo $ta('contact_intro', 'Chaque situation est unique. Prenez rendez-vous pour une première analyse de votre dossier.'); ?></textarea></td></tr>
+                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[contact_intro]" rows="2" class="large-text"><?php echo $ta('contact_intro', 'Pour toute demande de consultation ou d\'information, n\'hésitez pas à contacter le cabinet. Chaque situation mérite une attention particulière.'); ?></textarea></td></tr>
                 </table>
             </div>
 
@@ -354,7 +348,7 @@ function sg_render_textes_page() {
             <div id="sg-tab-404" class="sg-tab-content" style="display:none;">
                 <table class="form-table">
                     <tr><th>Titre</th><td><input type="text" name="sg_site_texts[e404_title]" value="<?php echo $t('e404_title', 'Page introuvable'); ?>" class="large-text"></td></tr>
-                    <tr><th>Message</th><td><textarea name="sg_site_texts[e404_text]" rows="2" class="large-text"><?php echo $ta('e404_text', 'La page que vous recherchez n\'existe pas ou a été déplacée.'); ?></textarea></td></tr>
+                    <tr><th>Message</th><td><textarea name="sg_site_texts[e404_text]" rows="2" class="large-text"><?php echo $ta('e404_text', 'La page que vous recherchez n\'existe pas ou a été déplacée. Nous vous invitons à retourner à l\'accueil.'); ?></textarea></td></tr>
                     <tr><th>Bouton principal</th><td><input type="text" name="sg_site_texts[e404_btn1]" value="<?php echo $t('e404_btn1', 'Retour à l\'accueil'); ?>" class="regular-text"></td></tr>
                     <tr><th>Bouton secondaire</th><td><input type="text" name="sg_site_texts[e404_btn2]" value="<?php echo $t('e404_btn2', 'Nous contacter'); ?>" class="regular-text"></td></tr>
                 </table>

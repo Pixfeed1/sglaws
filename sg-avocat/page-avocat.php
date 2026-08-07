@@ -10,8 +10,8 @@ $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'large') : 'http
   <div class="container">
     <span class="section-tag r">Avocat</span>
     <h1 class="page-header__title">
-      <span class="lr"><span>Me Seri</span></span>
-      <span class="lr"><span><em>Gueffie</em></span></span>
+      <span class="lr"><span><?php echo esc_html(sg_text('avocat_prenom', 'Me Seri')); ?></span></span>
+      <span class="lr"><span><em><?php echo esc_html(sg_text('avocat_nom', 'Gueffie')); ?></em></span></span>
     </h1>
   </div>
 </div>
@@ -36,6 +36,18 @@ $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'large') : 'http
             <span class="team__meta-label">Barreau</span>
             <span class="team__meta-value"><?php echo esc_html(sg_text('avocat_barreau', 'Barreau de Lyon')); ?></span>
           </div>
+          <?php $serment = sg_text('avocat_serment', '6 décembre 2021'); if ($serment) : ?>
+          <div class="team__meta-row">
+            <span class="team__meta-label">Serment</span>
+            <span class="team__meta-value"><?php echo esc_html($serment); ?></span>
+          </div>
+          <?php endif; ?>
+          <?php $specialite = sg_text('avocat_specialite', 'Droit des assurances'); if ($specialite) : ?>
+          <div class="team__meta-row">
+            <span class="team__meta-label">Spécialité</span>
+            <span class="team__meta-value"><?php echo esc_html($specialite); ?></span>
+          </div>
+          <?php endif; ?>
           <div class="team__meta-row">
             <span class="team__meta-label">Langues</span>
             <span class="team__meta-value"><?php echo esc_html(sg_text('avocat_langues', 'Français, Anglais')); ?></span>
