@@ -126,7 +126,7 @@ function sg_render_textes_page() {
                 <h3>Section Le Cabinet</h3>
                 <table class="form-table">
                     <tr><th>Tag</th><td><input type="text" name="sg_site_texts[home_about_tag]" value="<?php echo $t('home_about_tag', 'Le Cabinet'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_about_intro]" rows="3" class="large-text"><?php echo $ta('home_about_intro', 'Le cabinet de Me Seri Gueffie est une structure indépendante dédiée à la défense et au conseil juridique. Chaque client bénéficie d\'un accompagnement <em>global, personnalisé et confidentiel</em>, avec une exigence constante d\'efficacité et de résultat.'); ?></textarea><p class="description">Balises HTML autorisées : &lt;em&gt; pour l\'italique.</p></td></tr>
+                    <tr><th>Introduction</th><td><textarea name="sg_site_texts[home_about_intro]" rows="3" class="large-text"><?php echo $ta('home_about_intro', 'Le cabinet de Me Seri Gueffie est une structure indépendante dédiée à la défense et au conseil juridique. Chaque client bénéficie d\'un accompagnement <em>global, personnalisé et confidentiel</em>, avec une exigence constante d\'efficacité et de résultat.'); ?></textarea><p class="description">Balises HTML autorisées : &lt;em&gt; pour l'italique.</p></td></tr>
                 </table>
 
                 <h3>Section Description</h3>
