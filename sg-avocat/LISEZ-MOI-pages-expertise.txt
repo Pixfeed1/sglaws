@@ -6,46 +6,46 @@ Ajouté à ce thème
 - 8 gabarits de page (7 expertises + page chapeau)
 - Le bloc CSS des pages d'expertise, à la fin de style.css
 
-Mise en ligne, page par page
+Les 8 pages se creent toutes seules
+-----------------------------------
+Rien a creer a la main. A l'installation du theme, WordPress
+cree les 8 pages avec leur adresse, leur gabarit et leur texte
+deja en place :
+
+   Domaines d'intervention   /competences/
+   Assurance emprunteur      /avocat-assurance-emprunteur/
+   Prevoyance                /avocat-prevoyance-refus-garantie/
+   Catastrophe naturelle     /avocat-catastrophe-naturelle-assurance/
+   Construction              /avocat-assurance-construction-dommage-ouvrage/
+   RC professionnelle        /avocat-responsabilite-civile-professionnelle/
+   Risque industriel         /avocat-risque-industriel-assurance/
+   Accident de la route      /avocat-accident-de-la-route-indemnisation/
+
+"Accident de la route" est creee en BROUILLON : elle n'est pas
+visible du public tant que le cabinet ne l'a pas validee. Pour
+la publier, l'ouvrir et cliquer sur Publier, puis ajouter sa
+ligne dans page-competences.php et l'entree correspondante au
+menu deroulant "Domaine" du formulaire de contact.
+
+Une page qui existe deja n'est jamais ecrasee : reinstaller le
+theme ne touche pas au texte saisi depuis WordPress.
+
+A faire apres l'installation
 ----------------------------
-1. Pages > Ajouter
-2. Renseigner le titre, puis dans le panneau de droite,
-   Attributs de page > Modèle, choisir le gabarit correspondant
-3. Fixer le permalien (slug) :
+1. Verifier que l'entree "Competences" du menu pointe bien sur
+   la nouvelle page /competences/ (Apparence > Menus).
+2. Renseigner le Title SEO et la meta description de chaque page
+   dans le plugin SEO (fournis dans les documents du cabinet).
 
-   Domaines d'intervention (page chapeau)  competences
-   Expertise 01  avocat-assurance-emprunteur
-   Expertise 02  avocat-prevoyance-refus-garantie
-   Expertise 03  avocat-catastrophe-naturelle-assurance
-   Expertise 04  avocat-assurance-construction-dommage-ouvrage
-   Expertise 05  avocat-responsabilite-civile-professionnelle
-   Expertise 06  avocat-risque-industriel-assurance
-   Expertise 07  avocat-accident-de-la-route-indemnisation
+Modifier le texte d'une page
+----------------------------
+Pages > la page voulue. Le texte est dans l'editeur habituel,
+il se modifie comme un article. Une correction faite ici vit en
+base de donnees : elle survit aux mises a jour du theme.
 
-   Les slugs doivent être exacts : les liens entre les pages
-   les utilisent (fonction sg_page_url).
-
-4. Renseigner le Title SEO et la meta description dans le
-   plugin SEO, page par page (fournis dans les documents du cabinet).
-5. Coller le texte du corps de page dans l'editeur (voir ci-dessous).
-
-Coller le texte des 7 pages d'expertise
----------------------------------------
-Le corps de chaque page se redige maintenant dans WordPress, plus
-dans le fichier du gabarit. Une correction faite ici survit aux
-mises a jour du theme.
-
-Pour chaque page, un fichier est fourni dans le dossier
-"contenu-a-coller" :
-
-  1. Ouvrir la page dans WordPress
-  2. Menu ... (trois points, en haut a droite) > Editeur de code
-  3. Coller la totalite du fichier correspondant
-  4. Revenir en mode visuel, puis Publier
-
-Passer par l'editeur de code et non l'editeur visuel : le contenu
-est deja au format bloc, les titres, listes et encadres sont
-reconnus tels quels.
+Le dossier contenu-a-coller/ contient le texte d'origine de
+chaque page. Il sert a la creation automatique, et de sauvegarde
+si l'on veut repartir du texte initial.
 
 Ce qui reste dans le gabarit, et n'est donc pas modifiable depuis
 WordPress : le fil d'ariane, le titre H1, le chapo sous le titre,

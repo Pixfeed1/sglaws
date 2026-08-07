@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
  * @author PixFeed (pixfeed.net)
  */
 
-define('SG_VERSION', '1.2.0');
+define('SG_VERSION', '1.3.0');
 define('SG_DIR', get_template_directory());
 define('SG_URI', get_template_directory_uri());
 
@@ -55,13 +55,44 @@ function sg_setup_pages() {
         'politique-de-confidentialite' => ['title' => 'Politique de confidentialité', 'template' => '', 'content' => '<h2>Responsable du traitement</h2><p>Me Seri Gueffie, avocat au Barreau de Lyon.</p><h2>Données collectées</h2><p>Nom, email, téléphone, domaine juridique et message via le formulaire de contact.</p><h2>Finalité</h2><p>Répondre à vos demandes de consultation.</p><h2>Base légale</h2><p>Consentement (art. 6.1.a RGPD) et intérêt légitime (art. 6.1.f).</p><h2>Conservation</h2><p>3 ans à compter du dernier contact.</p><h2>Vos droits</h2><p>Accès, rectification, effacement, limitation, portabilité, opposition. Contact : seri@gueffie.fr</p><h2>Réclamation</h2><p>CNIL : <a href="https://www.cnil.fr">www.cnil.fr</a></p>'],
     ];
 
+    /* Pages d'expertise — une par domaine, créées avec leur gabarit, leur slug
+       et leur texte. Le texte vit dans contenu-a-coller/ et devient le contenu
+       de la page : il se modifie ensuite dans WordPress, plus dans le thème.
+       Les slugs sont ceux du plan de référencement, ils ne s'improvisent pas.
+       « Accident de la route » est créée en brouillon : elle attend validation. */
+    $expertises = [
+        'competences' => ['Domaines d\'intervention', 'page-competences.php', null],
+        'avocat-assurance-emprunteur' => ['Assurance emprunteur', 'page-exp-assurance-emprunteur.php', 'assurance-emprunteur'],
+        'avocat-prevoyance-refus-garantie' => ['Prévoyance', 'page-exp-prevoyance.php', 'prevoyance'],
+        'avocat-catastrophe-naturelle-assurance' => ['Catastrophe naturelle', 'page-exp-catastrophe-naturelle.php', 'catastrophe-naturelle'],
+        'avocat-assurance-construction-dommage-ouvrage' => ['Construction et dommage-ouvrage', 'page-exp-construction.php', 'construction'],
+        'avocat-responsabilite-civile-professionnelle' => ['Responsabilité civile professionnelle', 'page-exp-rc-professionnelle.php', 'rc-professionnelle'],
+        'avocat-risque-industriel-assurance' => ['Risque industriel', 'page-exp-risque-industriel.php', 'risque-industriel'],
+        'avocat-accident-de-la-route-indemnisation' => ['Accident de la route', 'page-exp-accident-route.php', 'accident-route', 'draft'],
+    ];
+    foreach ($expertises as $slug => $e) {
+        $body = '';
+        if ($e[2]) {
+            $file = SG_DIR . '/contenu-a-coller/' . $e[2] . '.txt';
+            if (is_readable($file)) {
+                $body = file_get_contents($file);
+            }
+        }
+        $pages[$slug] = [
+            'title'    => $e[0],
+            'template' => $e[1],
+            'content'  => $body,
+            'status'   => $e[3] ?? 'publish',
+        ];
+    }
+
     foreach ($pages as $slug => $page) {
         if (!get_page_by_path($slug)) {
             $id = wp_insert_post([
                 'post_title'   => $page['title'],
                 'post_name'    => $slug,
                 'post_content' => $page['content'] ?? '',
-                'post_status'  => 'publish',
+                'post_status'  => $page['status'] ?? 'publish',
                 'post_type'    => 'page',
             ]);
             if ($page['template'] && $id && !is_wp_error($id)) {
