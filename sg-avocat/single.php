@@ -35,11 +35,20 @@ if (!defined('ABSPATH')) exit; get_header(); ?>
 
 <section class="article">
   <div class="container">
-    <div class="article__inner">
-      <?php while (have_posts()) : the_post(); ?>
-        <?php the_content(); ?>
-      <?php endwhile; ?>
+    <?php while (have_posts()) : the_post(); $sg = sg_toc_article(); ?>
+    <div class="article__inner <?php echo esc_attr($sg['classe']); ?>">
+      <?php
+      echo $sg['sommaire'];
+      // Le sommaire précède le contenu dans le balisage quel que soit le côté
+      // choisi : il reste ainsi premier au clavier, et en tête sur mobile.
+      if ($sg['sommaire'] !== '') {
+          echo '<div class="article-body">' . $sg['contenu'] . '</div>';
+      } else {
+          echo $sg['contenu'];
+      }
+      ?>
     </div>
+    <?php endwhile; ?>
 
     <?php $pdf_url = get_post_meta(get_the_ID(), '_sg_pdf_url', true); ?>
     <?php if ($pdf_url) : ?>

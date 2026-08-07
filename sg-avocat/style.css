@@ -4,7 +4,7 @@ Theme URI: https://pixfeed.net
 Description: Thème sur mesure pour le cabinet de Me Seri Gueffie, avocat en droit des assurances au Barreau de Lyon. Design minimaliste, performant et optimisé SEO.
 Author: PixFeed
 Author URI: https://pixfeed.net
-Version: 1.4.0
+Version: 1.5.0
 License: Proprietary
 Text Domain: sg-avocat
 Requires at least: 6.0
@@ -2465,4 +2465,104 @@ ul, ol { list-style: none; }
   .exp-page__crumbs { font-size: 0.68rem; }
   .exp-page__gallery { grid-template-columns: 1fr; }
   .exp-page__aside { padding-left: 1rem; }
+}
+
+/* =============================================
+   SOMMAIRE D'ARTICLE
+   Remplace l'extension Easy Table of Contents.
+   Bloc repliable par défaut ; le rail latéral ne
+   s'active qu'à partir de 1025px, faute de place
+   en dessous.
+============================================= */
+
+.sg-toc {
+  font-family: var(--sans);
+  margin: 0 0 clamp(28px, 4vh, 40px);
+}
+
+.sg-toc__head {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: 1.1rem 2.5rem 1.1rem 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+}
+.sg-toc__head::-webkit-details-marker { display: none; }
+.sg-toc__head::after {
+  content: '';
+  position: absolute;
+  right: 0.2rem;
+  top: 1.35rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 1px solid var(--grey-500);
+  border-bottom: 1px solid var(--grey-500);
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform 0.35s var(--ease);
+}
+.sg-toc[open] .sg-toc__head::after { transform: translateY(25%) rotate(-135deg); }
+
+.sg-toc__list {
+  list-style: none;
+  margin: 0 0 1.4rem;
+  padding: 0;
+}
+.sg-toc__list a {
+  display: block;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 1px solid var(--grey-200);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--grey-500);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.sg-toc__list a:hover { color: var(--black); border-left-color: var(--black); }
+.sg-toc__item--sub a { padding-left: 2rem; font-size: 0.78rem; }
+.sg-toc__item.is-current > a { color: var(--black); border-left-color: var(--black); }
+
+/* Sans cette marge, un titre visé par le sommaire se range sous l'en-tête
+   collant et devient illisible à l'arrivée. */
+.article-body h2,
+.article-body h3 { scroll-margin-top: 120px; }
+
+/* --- Rail latéral, à partir de 1025px --- */
+@media (min-width: 1025px) {
+  .article__inner.article-layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: clamp(40px, 5vw, 90px);
+    align-items: start;
+    max-width: 1000px;
+  }
+
+  /* À droite : seules les colonnes changent de rang. Le balisage reste
+     identique, le sommaire demeure premier au clavier. */
+  .article__inner.article-layout--droite {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
+  .article-layout--droite > .sg-toc { grid-column: 2; grid-row: 1; }
+  .article-layout--droite > .article-body { grid-column: 1; grid-row: 1; }
+
+  .article-layout > .sg-toc {
+    position: sticky;
+    top: 130px;
+    margin: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  /* Le rail est toujours déployé. Le repli n'a de sens qu'en tête d'article,
+     là où le sommaire pousse le texte vers le bas. */
+  .article-layout > .sg-toc > .sg-toc__list { display: block; }
+  .article-layout > .sg-toc > .sg-toc__head { padding: 0 0 1.2rem; }
+  .article-layout > .sg-toc > .sg-toc__head::after { display: none; }
+  .article-layout > .sg-toc > .sg-toc__list { margin-bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-toc__head::after,
+  .sg-toc__list a { transition: none; }
 }

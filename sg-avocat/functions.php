@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
  * @author PixFeed (pixfeed.net)
  */
 
-define('SG_VERSION', '1.4.0');
+define('SG_VERSION', '1.5.0');
 define('SG_DIR', get_template_directory());
 define('SG_URI', get_template_directory_uri());
 
@@ -626,6 +626,7 @@ add_filter('comment_form_default_fields', function ($fields) { unset($fields['ur
 require_once SG_DIR . '/inc/admin-textes.php';
 require_once SG_DIR . '/inc/admin-messages.php';
 require_once SG_DIR . '/inc/admin-smtp.php';
+require_once SG_DIR . '/inc/toc.php';
 
 /* =============================================
    NAV WALKERS — Desktop & Mobile

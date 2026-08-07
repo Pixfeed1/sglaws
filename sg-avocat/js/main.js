@@ -236,3 +236,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
+
+/* =============================================
+   SOMMAIRE — suivi de lecture
+   Met en avant l'entrée correspondant à la section
+   à l'écran. Sans IntersectionObserver, le sommaire
+   reste un simple jeu de liens : rien ne casse.
+============================================= */
+(function () {
+  var liens = Array.prototype.slice.call(
+    document.querySelectorAll('.article-layout .sg-toc__list a')
+  );
+  if (!liens.length || !('IntersectionObserver' in window)) return;
+
+  var cibles = {};
+  liens.forEach(function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#' || href.length < 2) return;
+    var titre = document.getElementById(href.slice(1));
+    if (titre) cibles[titre.id] = a.parentNode;
+  });
+
+  var observateur = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      liens.forEach(function (a) { a.parentNode.classList.remove('is-current'); });
+      if (cibles[e.target.id]) cibles[e.target.id].classList.add('is-current');
+    });
+  }, { rootMargin: '-120px 0px -70% 0px' });
+
+  Object.keys(cibles).forEach(function (id) {
+    observateur.observe(document.getElementById(id));
+  });
+})();

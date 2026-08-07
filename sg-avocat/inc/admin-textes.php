@@ -343,6 +343,11 @@ function sg_render_textes_page() {
                     <tr><th>Rôle / spécialité</th><td><input type="text" name="sg_site_texts[article_author_role]" value="<?php echo $t('article_author_role', 'Avocat au Barreau de Lyon · Droit des assurances'); ?>" class="large-text"></td></tr>
                 </table>
 
+                <h3>Sommaire</h3>
+                <table class="form-table">
+                    <tr><th>Titre du sommaire</th><td><input type="text" name="sg_site_texts[article_toc_titre]" value="<?php echo $t('article_toc_titre', 'Sommaire'); ?>" class="regular-text"><p class="description">Le sommaire s'active article par article, dans le panneau « Sommaire » à droite de l'éditeur.</p></td></tr>
+                </table>
+
                 <h3>Bloc PDF (bas d'article)</h3>
                 <table class="form-table">
                     <tr><th>Titre du bloc</th><td><input type="text" name="sg_site_texts[article_pdf_label]" value="<?php echo $t('article_pdf_label', 'Télécharger cet article en PDF'); ?>" class="large-text"></td></tr>
