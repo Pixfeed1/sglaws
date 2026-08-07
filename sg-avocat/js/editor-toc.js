@@ -23,6 +23,7 @@
 
   var CheckboxControl = wp.components.CheckboxControl;
   var RadioControl = wp.components.RadioControl;
+  var SelectControl = wp.components.SelectControl;
 
   function SommairePanneau() {
     var typeArticle = wp.data.useSelect(function (select) {
@@ -39,12 +40,13 @@
 
     var actif = !!meta._sg_toc;
     var position = meta._sg_toc_position === 'droite' ? 'droite' : 'gauche';
+    var profondeur = String(meta._sg_toc_profondeur || 3);
 
     var enfants = [
       el(CheckboxControl, {
         key: 'actif',
         label: 'Afficher le sommaire',
-        help: 'Construit à partir des titres de niveau 2 et 3 de l’article. Il n’apparaît qu’à partir de deux titres.',
+        help: 'Construit automatiquement à partir des titres du contenu. Il n’apparaît qu’à partir de trois entrées.',
         checked: actif,
         onChange: function (valeur) {
           majMeta(Object.assign({}, meta, { _sg_toc: valeur }));
@@ -54,10 +56,26 @@
 
     if (actif) {
       enfants.push(
+        el(SelectControl, {
+          key: 'profondeur',
+          label: 'Ce que reprend le sommaire',
+          help: 'Au-delà des sous-sections, les entrées deviennent étroites dans la colonne latérale. À réserver aux contenus très découpés.',
+          value: profondeur,
+          options: [
+            { label: 'Les sections seulement', value: '2' },
+            { label: 'Les sections et leurs sous-sections', value: '3' },
+            { label: 'Tous les niveaux de titre', value: '6' },
+          ],
+          onChange: function (valeur) {
+            majMeta(Object.assign({}, meta, { _sg_toc_profondeur: parseInt(valeur, 10) }));
+          },
+        })
+      );
+      enfants.push(
         el(RadioControl, {
           key: 'position',
           label: 'Position sur grand écran',
-          help: 'Sur mobile et tablette, le sommaire se place toujours en tête d’article, sous forme de bloc repliable.',
+          help: 'Sur mobile et tablette, le sommaire se place toujours en tête de contenu, sous forme de bloc repliable.',
           selected: position,
           options: [
             { label: 'À gauche de l’article', value: 'gauche' },

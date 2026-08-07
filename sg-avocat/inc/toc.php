@@ -14,6 +14,7 @@ if (!defined('ABSPATH')) exit;
 
 const SG_TOC_META     = '_sg_toc';
 const SG_TOC_POSITION = '_sg_toc_position';
+const SG_TOC_PROFONDEUR = '_sg_toc_profondeur';
 
 add_action('init', function () {
     $droit = function () {
@@ -37,8 +38,29 @@ add_action('init', function () {
                 return $v === 'droite' ? 'droite' : 'gauche';
             },
         ]);
+        register_post_meta($type, SG_TOC_PROFONDEUR, [
+            'type'              => 'integer',
+            'single'            => true,
+            'default'           => 3,
+            'show_in_rest'      => true,
+            'auth_callback'     => $droit,
+            'sanitize_callback' => 'sg_toc_profondeur_valide',
+        ]);
     }
 });
+
+/**
+ * Niveau de titre le plus profond repris par le sommaire.
+ *
+ * Trois valeurs seulement : 2 pour les sections, 3 pour les sous-sections,
+ * 6 pour tout. Descendre plus bas n'a de sens que dans le bloc replié : dans
+ * le rail, large de 220 px, un quatrième niveau indenté ne laisse plus assez
+ * de place au texte et les titres partent sur trois lignes.
+ */
+function sg_toc_profondeur_valide($valeur) {
+    $valeur = (int) $valeur;
+    return in_array($valeur, [2, 3, 6], true) ? $valeur : 3;
+}
 
 add_action('enqueue_block_editor_assets', function () {
     if (!in_array(get_post_type(), ['post', 'page'], true)) {
@@ -54,7 +76,11 @@ add_action('enqueue_block_editor_assets', function () {
 });
 
 /**
- * Numérote les titres de niveau 2 et 3 et en dresse la liste.
+ * Numérote les titres jusqu'au niveau demandé et en dresse la liste.
+ *
+ * Le titre de l'article est exclu d'office : c'est le nom du contenu, pas une
+ * de ses sections, et le faire figurer dans son propre sommaire n'aurait pas
+ * de sens.
  *
  * Seules les balises de titre sont réécrites : le reste du contenu ressort
  * octet pour octet. Un identifiant déjà posé — par l'éditeur ou à la main —
@@ -62,12 +88,12 @@ add_action('enqueue_block_editor_assets', function () {
  *
  * @return array{0:string,1:array} Le contenu ancré, puis les entrées relevées.
  */
-function sg_toc_ancrer($contenu) {
+function sg_toc_ancrer($contenu, $profondeur = 3) {
     $entrees = [];
     $pris    = [];
 
     $contenu = preg_replace_callback(
-        '#<h([23])([^>]*)>(.*?)</h\1>#is',
+        '#<h([2-' . sg_toc_profondeur_valide($profondeur) . '])([^>]*)>(.*?)</h\1>#is',
         function ($m) use (&$entrees, &$pris) {
             $niveau = (int) $m[1];
             $attrs  = $m[2];
@@ -107,7 +133,9 @@ function sg_toc_ancrer($contenu) {
  * ce qui est affiché.
  */
 function sg_toc_balisage($entrees) {
-    if (count($entrees) < 2) {
+    // Deux entrées ne font pas un sommaire : elles occupent de la place sans
+    // rien faire gagner au lecteur, qui voit déjà les deux titres à l'écran.
+    if (count($entrees) < 3) {
         return '';
     }
 
@@ -115,7 +143,11 @@ function sg_toc_balisage($entrees) {
     $out .= '<summary class="sg-toc__head">' . esc_html(sg_text('article_toc_titre', 'Sommaire')) . '</summary>';
     $out .= '<ol class="sg-toc__list">';
     foreach ($entrees as $e) {
-        $out .= '<li class="sg-toc__item' . ($e['niveau'] === 3 ? ' sg-toc__item--sub' : '') . '">';
+        $classe = 'sg-toc__item';
+        if ($e['niveau'] > 2) {
+            $classe .= ' sg-toc__item--n' . min($e['niveau'], 4);
+        }
+        $out .= '<li class="' . $classe . '">';
         $out .= '<a href="#' . esc_attr($e['id']) . '">' . esc_html($e['titre']) . '</a>';
         $out .= '</li>';
     }
@@ -137,7 +169,8 @@ function sg_toc_article() {
         return ['classe' => '', 'sommaire' => '', 'contenu' => $contenu];
     }
 
-    list($contenu, $entrees) = sg_toc_ancrer($contenu);
+    $profondeur = sg_toc_profondeur_valide(get_post_meta(get_the_ID(), SG_TOC_PROFONDEUR, true));
+    list($contenu, $entrees) = sg_toc_ancrer($contenu, $profondeur);
     $sommaire = sg_toc_balisage($entrees);
 
     if ($sommaire === '') {

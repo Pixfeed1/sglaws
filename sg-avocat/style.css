@@ -4,7 +4,7 @@ Theme URI: https://pixfeed.net
 Description: Thème sur mesure pour le cabinet de Me Seri Gueffie, avocat en droit des assurances au Barreau de Lyon. Design minimaliste, performant et optimisé SEO.
 Author: PixFeed
 Author URI: https://pixfeed.net
-Version: 1.5.1
+Version: 1.6.0
 License: Proprietary
 Text Domain: sg-avocat
 Requires at least: 6.0
@@ -2521,7 +2521,10 @@ ul, ol { list-style: none; }
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 .sg-toc__list a:hover { color: var(--black); border-left-color: var(--black); }
-.sg-toc__item--sub a { padding-left: 2rem; font-size: 0.78rem; }
+/* Indentation par niveau. Elle s'arrête au quatrième : au-delà, dans un rail
+   de 220 px, il ne resterait plus assez de largeur pour lire le titre. */
+.sg-toc__item--n3 a { padding-left: 2rem; font-size: 0.78rem; }
+.sg-toc__item--n4 a { padding-left: 2.8rem; font-size: 0.76rem; }
 .sg-toc__item.is-current > a { color: var(--black); border-left-color: var(--black); }
 
 /* Sans cette marge, un titre visé par le sommaire se range sous l'en-tête
