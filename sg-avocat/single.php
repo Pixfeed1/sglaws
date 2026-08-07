@@ -103,14 +103,45 @@ if (!defined('ABSPATH')) exit; get_header(); ?>
   </div>
 </div>
 
+<?php
+/* Articles du même thème d'abord : un lecteur venu d'un article sur la
+   prévoyance doit se voir proposer de la prévoyance, pas du dommage-ouvrage.
+   Repli sur les plus récents si la catégorie n'en fournit pas trois. */
+$exclude     = [get_the_ID()];
+$cat_ids     = wp_get_post_categories(get_the_ID());
+$related_ids = $cat_ids ? get_posts([
+    'post_type'           => 'post',
+    'posts_per_page'      => 3,
+    'post__not_in'        => $exclude,
+    'category__in'        => $cat_ids,
+    'fields'              => 'ids',
+    'ignore_sticky_posts' => true,
+]) : [];
+
+if (count($related_ids) < 3) {
+    $related_ids = array_merge($related_ids, get_posts([
+        'post_type'           => 'post',
+        'posts_per_page'      => 3 - count($related_ids),
+        'post__not_in'        => array_merge($exclude, $related_ids),
+        'fields'              => 'ids',
+        'ignore_sticky_posts' => true,
+    ]));
+}
+
+if ($related_ids) :
+    $related = new WP_Query([
+        'post_type'           => 'post',
+        'post__in'            => $related_ids,
+        'orderby'             => 'post__in',
+        'posts_per_page'      => 3,
+        'ignore_sticky_posts' => true,
+    ]);
+?>
 <section class="related">
   <div class="container">
     <span class="related__tag r"><?php echo esc_html(sg_text('article_related_tag', 'Autres publications')); ?></span>
     <div class="publications__list">
-      <?php
-      $related = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3, 'post__not_in' => [get_the_ID()]]);
-      while ($related->have_posts()) : $related->the_post();
-      ?>
+      <?php while ($related->have_posts()) : $related->the_post(); ?>
         <a href="<?php the_permalink(); ?>" class="pub-item r">
           <span class="pub-item__date"><?php echo get_the_date('d.m.Y'); ?></span>
           <span class="pub-item__title"><?php the_title(); ?></span>
@@ -120,6 +151,7 @@ if (!defined('ABSPATH')) exit; get_header(); ?>
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 <section class="article-cta">
   <div class="container">

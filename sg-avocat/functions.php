@@ -18,6 +18,9 @@ add_action('after_setup_theme', function () {
     add_theme_support('post-thumbnails');
     add_theme_support('html5', ['comment-form', 'comment-list', 'search-form', 'gallery', 'caption']);
     add_theme_support('custom-logo');
+    // Sans ça, une vidéo ou une carte collée dans un article sort avec une largeur
+    // fixe et déborde de l'écran sur mobile.
+    add_theme_support('responsive-embeds');
     set_post_thumbnail_size(1200, 630, true);
     add_image_size('sg-hero', 1920, 1080, true);
     add_image_size('sg-card', 600, 400, true);
