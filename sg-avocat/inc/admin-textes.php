@@ -111,7 +111,7 @@ function sg_render_textes_page() {
                 <table class="form-table">
                     <tr><th>Titre</th><td><input type="text" name="sg_site_texts[home_contact_title]" value="<?php echo $t('home_contact_title', 'Prenons<br><em>rendez-vous</em>'); ?>" class="large-text"><p class="description">Balises autorisées : &lt;br&gt; pour passer à la ligne, &lt;em&gt; pour l'italique.</p></td></tr>
                     <tr><th>Texte</th><td><textarea name="sg_site_texts[home_contact_text]" rows="2" class="large-text"><?php echo $ta('home_contact_text', 'Pour toute demande de consultation ou d\'information, n\'hésitez pas à contacter le cabinet. Chaque situation mérite une attention particulière.'); ?></textarea></td></tr>
-                    <tr><th>Consentement RGPD</th><td><textarea name="sg_site_texts[home_contact_rgpd]" rows="2" class="large-text"><?php echo $ta('home_contact_rgpd', 'En envoyant ce formulaire, vous acceptez le traitement de vos données conformément à notre politique de confidentialité.'); ?></textarea></td></tr>
+                    <tr><th>Consentement RGPD</th><td><textarea name="sg_site_texts[home_contact_rgpd]" rows="2" class="large-text"><?php echo $ta('home_contact_rgpd', 'En envoyant ce formulaire, vous acceptez le traitement de vos données conformément à notre politique de confidentialité.'); ?></textarea><p class="description">Balise &lt;a href="..."&gt; autorisée pour le lien vers la politique de confidentialité.</p></td></tr>
                 </table>
 
                 <h3>Valeurs</h3>
@@ -138,7 +138,7 @@ function sg_render_textes_page() {
                 <h3>Section Publications</h3>
                 <table class="form-table">
                     <tr><th>Tag</th><td><input type="text" name="sg_site_texts[home_pub_tag]" value="<?php echo $t('home_pub_tag', 'Publications'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[home_pub_title]" value="<?php echo $t('home_pub_title', 'Articles & Publications'); ?>" class="large-text"></td></tr>
+                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[home_pub_title]" value="<?php echo $t('home_pub_title', 'Articles & Publications'); ?>" class="large-text"><p class="description">Titre de l'encadré sur la page d'accueil. Le titre de la page Publications elle-même se règle dans l'onglet Articles.</p></td></tr>
                     <tr><th>Lien "Voir tout"</th><td><input type="text" name="sg_site_texts[home_pub_more]" value="<?php echo $t('home_pub_more', 'Voir tout ↗'); ?>" class="regular-text"></td></tr>
                 </table>
 
@@ -288,7 +288,7 @@ function sg_render_textes_page() {
 
                 <h3>CTA bas de page détail</h3>
                 <table class="form-table">
-                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[exp_detail_cta_title]" value="<?php echo $t('exp_detail_cta_title', 'Besoin d\'un <em>accompagnement ?</em>'); ?>" class="large-text"></td></tr>
+                    <tr><th>Titre</th><td><input type="text" name="sg_site_texts[exp_detail_cta_title]" value="<?php echo $t('exp_detail_cta_title', 'Besoin d\'un <em>accompagnement ?</em>'); ?>" class="large-text"><p class="description">Balise &lt;em&gt; pour l'italique.</p></td></tr>
                     <tr><th>Sous-titre</th><td><input type="text" name="sg_site_texts[exp_detail_cta_sub]" value="<?php echo $t('exp_detail_cta_sub', 'Chaque dossier mérite une analyse personnalisée.'); ?>" class="large-text"></td></tr>
                     <tr><th>Bouton</th><td><input type="text" name="sg_site_texts[exp_detail_cta_btn]" value="<?php echo $t('exp_detail_cta_btn', 'Prendre rendez-vous'); ?>" class="regular-text"></td></tr>
                 </table>
@@ -318,6 +318,12 @@ function sg_render_textes_page() {
 
             <!-- ARTICLES -->
             <div id="sg-tab-articles" class="sg-tab-content" style="display:none;">
+                <h3>Titre de la page Publications</h3>
+                <table class="form-table">
+                    <tr><th>Titre ligne 1</th><td><input type="text" name="sg_site_texts[pub_title_l1]" value="<?php echo $t('pub_title_l1', 'Articles &'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Titre ligne 2</th><td><input type="text" name="sg_site_texts[pub_title_l2]" value="<?php echo $t('pub_title_l2', 'Publications'); ?>" class="regular-text"><p class="description">Affichée en italique, sous la ligne 1.</p></td></tr>
+                </table>
+
                 <h3>Auteur (affiché sous chaque article)</h3>
                 <table class="form-table">
                     <tr><th>Nom de l'auteur</th><td><input type="text" name="sg_site_texts[article_author_name]" value="<?php echo $t('article_author_name', 'Me Seri Gueffie'); ?>" class="regular-text"></td></tr>

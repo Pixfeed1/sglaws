@@ -7,8 +7,8 @@ get_header(); ?>
   <div class="container">
     <span class="section-tag r"><?php echo esc_html(sg_text('home_pub_tag', 'Publications')); ?></span>
     <h1 class="page-header__title">
-      <span class="lr"><span><?php echo esc_html(sg_text('home_pub_title', 'Articles &')); ?></span></span>
-      <span class="lr"><span><em>Publications</em></span></span>
+      <span class="lr"><span><?php echo esc_html(sg_text('pub_title_l1', 'Articles &')); ?></span></span>
+      <span class="lr"><span><em><?php echo esc_html(sg_text('pub_title_l2', 'Publications')); ?></em></span></span>
     </h1>
   </div>
 </div>
