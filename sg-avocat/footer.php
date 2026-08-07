@@ -16,6 +16,7 @@
               'theme_location' => 'primary',
               'container'       => false,
               'items_wrap'      => '%3$s',
+              'depth'           => 1, // Colonne courte : les entrées enfants sont ignorées ici.
               'walker'          => new SG_Footer_Walker(),
               'fallback_cb'     => function() {
                   echo '<a href="' . home_url('/expertise/') . '">Expertise</a>';

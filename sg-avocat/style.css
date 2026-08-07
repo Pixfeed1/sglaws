@@ -333,12 +333,17 @@ ul, ol { list-style: none; }
   opacity: 1;
   transform: translateY(0);
 }
-.mobile-nav.open a:nth-child(1) { transition-delay:0.15s; }
-.mobile-nav.open a:nth-child(2) { transition-delay:0.2s; }
-.mobile-nav.open a:nth-child(3) { transition-delay:0.25s; }
-.mobile-nav.open a:nth-child(4) { transition-delay:0.3s; }
-.mobile-nav.open a:nth-child(5) { transition-delay:0.35s; }
-.mobile-nav.open a:nth-child(6) { transition-delay:0.4s; }
+/* Cascade d'ouverture. --i est posé sur chaque lien par SG_Mobile_Walker :
+   le décalage suit le nombre d'entrées au lieu de s'arrêter à la sixième. */
+.mobile-nav.open a { transition-delay: calc(0.15s + var(--i, 0) * 0.05s); }
+
+/* Entrées enfants : sur une colonne centrée, la hiérarchie se lit à la taille
+   et à la couleur — une indentation à gauche ne se verrait pas. */
+.mobile-nav a.mob-link--child {
+  font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+  color: var(--grey-500);
+  margin-top: -1.4rem; /* resserre l'enfant sous son parent, gap de 2.5rem oblige */
+}
 
 /* =============================================
    HERO

@@ -370,9 +370,26 @@ class SG_Desktop_Walker extends Walker_Nav_Menu {
     function end_lvl(&$output, $depth = 0, $args = null) {}
 }
 
+/**
+ * Menu mobile — seul des trois à rendre les entrées enfants.
+ *
+ * La colonne est verticale et centrée : la hiérarchie se lit à la taille et à
+ * la couleur, pas à l'indentation, qui ne se verrait pas sur un axe centré.
+ * start_lvl() et end_lvl() restent vides volontairement — items_wrap vaut
+ * '%3$s', il n'y a donc pas de <ul> à ouvrir.
+ */
 class SG_Mobile_Walker extends Walker_Nav_Menu {
+    private $index = 0;
+
     function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
-        $output .= '<a href="' . esc_url($item->url) . '" class="mob-link">' . esc_html($item->title) . '</a>';
+        $classes = ['mob-link'];
+        if ($depth > 0) {
+            $classes[] = 'mob-link--child';
+        }
+        $output .= '<a href="' . esc_url($item->url) . '"'
+                 . ' class="' . esc_attr(implode(' ', $classes)) . '"'
+                 . ' style="--i:' . (int) $this->index++ . '">'
+                 . esc_html($item->title) . '</a>';
     }
     function end_el(&$output, $item, $depth = 0, $args = null) {}
     function start_lvl(&$output, $depth = 0, $args = null) {}
@@ -396,10 +413,11 @@ function sg_fallback_menu() {
     echo '<a href="' . home_url('/contact/') . '" class="header__cta">Contact</a>';
 }
 function sg_fallback_mobile_menu() {
-    echo '<a href="' . home_url('/expertise/') . '" class="mob-link">Expertise</a>';
-    echo '<a href="' . home_url('/avocat/') . '" class="mob-link">Avocat</a>';
-    echo '<a href="' . home_url('/publications/') . '" class="mob-link">Publications</a>';
-    echo '<a href="' . home_url('/contact/') . '" class="mob-link">Contact</a>';
+    // --i alimente le décalage de la cascade d'ouverture, comme dans SG_Mobile_Walker.
+    echo '<a href="' . home_url('/expertise/') . '" class="mob-link" style="--i:0">Expertise</a>';
+    echo '<a href="' . home_url('/avocat/') . '" class="mob-link" style="--i:1">Avocat</a>';
+    echo '<a href="' . home_url('/publications/') . '" class="mob-link" style="--i:2">Publications</a>';
+    echo '<a href="' . home_url('/contact/') . '" class="mob-link" style="--i:3">Contact</a>';
 }
 
 /* =============================================

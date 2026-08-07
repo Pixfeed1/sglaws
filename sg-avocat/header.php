@@ -23,6 +23,7 @@
           'theme_location' => 'primary',
           'container'       => false,
           'items_wrap'      => '%3$s',
+          'depth'           => 1, // La barre est une ligne unique : les entrées enfants sont ignorées ici.
           'walker'          => new SG_Desktop_Walker(),
           'fallback_cb'     => 'sg_fallback_menu',
       ]);
