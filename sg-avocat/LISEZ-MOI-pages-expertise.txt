@@ -63,7 +63,9 @@ Reste à faire (hors de cette livraison)
 ---------------------------------------
 - (fait) Cartes de l'accueil, de la page Expertise et de la landing
   recâblées vers les pages dédiées
-- Redirections 301 depuis /litige-assurance/ et /expertise-detail/
+- (fait) Redirections 301 de /litige-assurance/ et /expertise-detail/
+  vers /competences/, assurees par le theme. Rien a configurer chez
+  l'hebergeur. Elles ne s'activent que si la page chapeau existe.
 - Balisage FAQPage (données structurées)
 - Liens retour depuis les articles existants vers les pages d'expertise
 - Sitemap, Search Console, demande d'indexation

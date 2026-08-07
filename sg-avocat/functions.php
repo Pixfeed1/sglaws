@@ -351,6 +351,38 @@ function sg_expertise_url($num) {
     return sg_page_url($slugs[$num] ?? 'competences');
 }
 
+/**
+ * Redirections permanentes des anciennes adresses de la page unique d'expertise.
+ *
+ * Cette page portait le texte des six domaines. Les six pages dédiées portent
+ * le même contenu, en mieux : sans redirection, Google garde les deux en
+ * concurrence sur les mêmes requêtes, et l'ancienne — qu'il connaît depuis plus
+ * longtemps — peut l'emporter. La redirection lui indique que le contenu a
+ * déménagé et lui transfère l'ancienneté acquise.
+ *
+ * Une ancre n'étant jamais transmise au serveur, /litige-assurance/#prevoyance
+ * arrive ici comme /litige-assurance/ : les anciens liens à ancre aboutissent
+ * donc sur la page chapeau, ce qu'aucune règle serveur ne saurait faire mieux.
+ *
+ * Ne redirige que si la page chapeau existe réellement, pour ne jamais envoyer
+ * un visiteur vers une adresse vide.
+ */
+add_action('template_redirect', function () {
+    if (is_admin() || !is_page()) {
+        return;
+    }
+    $id = get_queried_object_id();
+    if (!in_array(get_post_field('post_name', $id), ['litige-assurance', 'expertise-detail'], true)) {
+        return;
+    }
+    $chapeau = get_page_by_path('competences');
+    if (!$chapeau || (int) $chapeau->ID === (int) $id) {
+        return;
+    }
+    wp_safe_redirect(get_permalink($chapeau->ID), 301);
+    exit;
+});
+
 function sg_text($key, $default = '') {
     $texts = get_option('sg_site_texts', []);
     return isset($texts[$key]) && $texts[$key] !== '' ? $texts[$key] : $default;
