@@ -1,0 +1,74 @@
+<!-- wp:paragraph -->
+<p>Le cabinet Gueffie, qui défend exclusivement les assurés et les victimes, jamais les compagnies, intervient pour évaluer, contester et rehausser cette offre, à Lyon et sur l’ensemble du territoire.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Un rapport de force déséquilibré dès le départ</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Face à un dommage corporel, la victime et l’assureur ne disposent pas des mêmes moyens. La compagnie s’appuie sur ses propres médecins et sur une connaissance fine des barèmes pour contenir l’indemnisation. Formé au sein de cabinets intervenant pour les compagnies d’assurance, le cabinet connaît précisément les mécanismes utilisés pour limiter une offre, et en fait aujourd’hui un levier au service exclusif des victimes.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">L’offre de l’assureur, rarement à la hauteur du préjudice</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Dans le cadre de la loi Badinter, l’assureur du responsable doit formuler une offre dans des délais encadrés. Mais l’obligation de faire une offre n’est pas une garantie de justesse : la première proposition est fréquemment sous-évaluée, parfois présentée avant même que l’état de la victime ne soit consolidé. Accepter trop tôt, c’est renoncer à des sommes qui ne pourront plus être réclamées.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"exp-page__aside"} -->
+<p class="exp-page__aside">À lire également : <a href="/offre-indemnisation-accident-route/">Accident de la route : comment évaluer l’offre d’indemnisation de l’assureur</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">L’expertise médicale, moment décisif</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>L’évaluation de votre préjudice repose sur une expertise médicale. Or le médecin qui l’a réalisée a souvent été mandaté par l’assureur, et ses conclusions, taux de déficit fonctionnel, imputabilité des séquelles, date de consolidation, commandent l’ensemble de l’indemnisation. Ces conclusions peuvent être discutées, complétées ou contredites. Être assisté au stade de l’expertise, et non après, change l’issue du dossier.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Les postes de préjudice trop souvent oubliés</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Une indemnisation juste suppose de recenser l’ensemble des postes de préjudice, patrimoniaux et extrapatrimoniaux. Sont fréquemment sous-évalués ou omis :</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>le déficit fonctionnel permanent et temporaire ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>les souffrances endurées et le préjudice esthétique ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>le préjudice d’agrément (activités de loisirs, sport) ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>les pertes de gains professionnels, actuelles et futures ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>les frais d’assistance par une tierce personne ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>l’aménagement du logement ou du véhicule.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Sans accompagnement, une indemnisation partielle est souvent acceptée comme définitive. Chaque poste omis est une perte sèche pour la victime.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">La méthode du cabinet</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Avant toute réponse à l’assureur, le cabinet analyse le rapport d’expertise, les pièces médicales et les éléments du dossier pour mesurer l’écart entre l’offre et l’indemnisation réellement due. L’objectif n’est pas d’allonger inutilement la procédure, mais de ne pas céder à la pression d’un règlement rapide et insuffisant, et d’obtenir, par la négociation ou, si nécessaire, devant le juge, la réparation intégrale de votre préjudice.</p>
+<!-- /wp:paragraph -->

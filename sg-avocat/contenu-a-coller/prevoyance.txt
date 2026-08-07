@@ -1,0 +1,92 @@
+<!-- wp:paragraph -->
+<p>Le cabinet Gueffie intervient exclusivement pour les assurés, jamais pour les compagnies, à Lyon et sur l’ensemble du territoire, pour contester ces refus d’indemnisation.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Quand la prévoyance doit prendre le relais</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>La garantie prévoyance s’active en général à l’issue d’un délai de franchise, après un arrêt de travail, une incapacité ou une invalidité. Selon les contrats, elle prend la forme d’indemnités journalières, d’une rente d’invalidité ou d’un capital. Tant que les conditions de garantie sont réunies, l’assureur doit exécuter son engagement.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>C’est précisément au moment où la garantie devrait se déclencher que se nouent la plupart des litiges : refus pur et simple, sous-évaluation du taux d’invalidité, ou interruption des versements.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Les motifs de refus les plus fréquents</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Pour refuser sa garantie, l’assureur invoque le plus souvent l’un de ces trois motifs :</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>une maladie ou un état antérieur à l’adhésion, qui exclurait la prise en charge ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>une fausse déclaration intentionnelle de risque au moment de la souscription ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>la résiliation du contrat de travail, censée mettre fin à la garantie.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Ce dernier argument est l’un des plus employés, et l’un des plus discutables. La cessation du contrat de travail n’emporte pas nécessairement la perte des droits nés pendant la période de garantie, en particulier lorsque l’arrêt de travail ou l’invalidité trouve son origine avant la rupture.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>De même, une antériorité médicale ne suffit pas, à elle seule, à priver l’assuré de sa garantie : encore faut-il que l’état ait été connu, déclarable et effectivement exclu par le contrat. Quant à la fausse déclaration intentionnelle, elle suppose une preuve précise, à la charge de l’assureur : une réponse inexacte à une question claire et une véritable intention de tromper.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">L’opposabilité de la notice : un moyen décisif en prévoyance collective</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Dans les contrats collectifs, souscrits par l’employeur au bénéfice des salariés, l’opposabilité de la notice d’information est un point de résistance déterminant. Les clauses limitatives ou d’exclusion ne peuvent être opposées à l’assuré que si la notice lui a été régulièrement remise. Faute de remise, l’assureur ne peut se prévaloir de ces clauses pour refuser sa garantie. Le cabinet vérifie systématiquement ce point, souvent négligé, et en fait un levier de défense à part entière.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"exp-page__aside"} -->
+<p class="exp-page__aside">À lire également : <a href="/prevoyance-opposabilite-notice-information/">Prévoyance collective, rappel des conditions d’opposabilité de la notice d’information au salarié adhérent</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Une contestation, deux moyens</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Contester un refus de prévoyance suppose d’agir simultanément sur deux plans complémentaires :</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>Le moyen médical.</strong> Le dossier est soumis à une lecture indépendante afin de reconsidérer les conclusions du médecin mandaté par l’assureur, dont l’appréciation du taux d’invalidité ou du lien avec une pathologie antérieure peut être discutée.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>Le moyen juridique.</strong> La validité et l’opposabilité des clauses invoquées par la compagnie sont vérifiées : définition contractuelle de l’invalidité, conditions d’exclusion, remise de la notice, respect des délais.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>C’est le croisement de ces deux analyses qui révèle si le refus tient réellement, et qui fonde une contestation solide.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Le déroulé d’un dossier avec le cabinet</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Un dossier mal analysé au départ conduit à une stratégie mal calibrée. Avant toute démarche, le cabinet obtient et examine la motivation écrite du refus, le contrat et ses conditions générales, la notice, le questionnaire de santé et l’ensemble des pièces médicales.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cette lecture permet une évaluation objective du dossier avant d’engager un recours amiable puis, si nécessaire, judiciaire. Les dossiers de prévoyance s’inscrivent souvent dans la durée : ce qui fait la différence, c’est la capacité à tenir une position dans le temps et à ne pas accepter une issue qui ne reflète pas l’indemnisation à laquelle vous pouvez prétendre.</p>
+<!-- /wp:paragraph -->

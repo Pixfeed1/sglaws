@@ -1,0 +1,45 @@
+<!-- wp:paragraph -->
+<p>Le cabinet Gueffie accompagne les professionnels, à Lyon et sur l’ensemble du territoire.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Les points de cristallisation du litige</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>En matière de responsabilité civile professionnelle, les litiges se concentrent essentiellement sur :</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>l’application d’une règle proportionnelle fondée sur une déclaration de risque jugée inexacte ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>l’évaluation des conséquences du sinistre : pertes d’exploitation, dommages matériels et immatériels ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>l’identification des responsabilités en cause, souvent partagées.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">La règle proportionnelle de prime, un terrain à ne pas céder</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>La règle proportionnelle permet à l’assureur de réduire son indemnité en proportion des primes qui auraient dû être versées si le risque avait été exactement déclaré. Mais elle repose sur une asymétrie probatoire, et ses conditions d’application sont strictes. Elle est contestable plus souvent qu’on ne le croit.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"exp-page__aside"} -->
+<p class="exp-page__aside">À lire également : <a href="/regle-proportionnelle-prime/">Règle proportionnelle de prime : comment la contester</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Agir dès la déclaration de sinistre</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Le cabinet intervient dès la déclaration de sinistre, avant que certaines erreurs ne compromettent définitivement vos droits à indemnisation. L’objectif : obtenir dans les meilleurs délais une indemnisation conforme aux garanties du contrat, sans céder à la pression d’un règlement rapide mais insuffisant, susceptible de fragiliser la poursuite de l’activité.</p>
+<!-- /wp:paragraph -->

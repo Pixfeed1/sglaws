@@ -1,0 +1,41 @@
+<!-- wp:paragraph -->
+<p>Le cabinet Gueffie apporte une direction juridique claire dans ces dossiers à acteurs multiples, à Lyon et sur l’ensemble du territoire.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">La difficulté propre aux sinistres industriels</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Dans les sinistres impliquant un produit ou un équipement, la difficulté porte le plus souvent sur l’identification précise du maillon défaillant dans la chaîne de conception, de fabrication ou d’exploitation, ainsi que sur le périmètre des garanties mobilisables. L’établissement des causes et des conséquences suppose une analyse technique approfondie et la maîtrise d’opérations d’expertise souvent multiples.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Des dossiers à responsabilités multiples</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Ces dossiers peuvent concerner, par exemple :</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>des défaillances de systèmes électriques à l’origine de sinistres répétés dans un réseau de magasins ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>des défauts de conception affectant des dispositifs médicaux implantables ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>des dysfonctionnements d’équipements ayant entraîné un arrêt d’exploitation prolongé.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Une direction juridique dans un dossier à acteurs multiples</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Le cabinet conduit ces dossiers avec une ligne constante : préserver les preuves, contenir les déplacements de responsabilité entre les intervenants, et mener l’analyse jusqu’à l’identification du véritable débiteur de l’indemnisation. Dans un contentieux où chacun cherche à reporter la charge sur un autre, cette direction fait la différence.</p>
+<!-- /wp:paragraph -->

@@ -1,0 +1,82 @@
+GUEFFIE — PAGES D'EXPERTISE
+===========================
+
+Ajouté à ce thème
+-----------------
+- 8 gabarits de page (7 expertises + page chapeau)
+- Le bloc CSS des pages d'expertise, à la fin de style.css
+
+Mise en ligne, page par page
+----------------------------
+1. Pages > Ajouter
+2. Renseigner le titre, puis dans le panneau de droite,
+   Attributs de page > Modèle, choisir le gabarit correspondant
+3. Fixer le permalien (slug) :
+
+   Domaines d'intervention (page chapeau)  competences
+   Expertise 01  avocat-assurance-emprunteur
+   Expertise 02  avocat-prevoyance-refus-garantie
+   Expertise 03  avocat-catastrophe-naturelle-assurance
+   Expertise 04  avocat-assurance-construction-dommage-ouvrage
+   Expertise 05  avocat-responsabilite-civile-professionnelle
+   Expertise 06  avocat-risque-industriel-assurance
+   Expertise 07  avocat-accident-de-la-route-indemnisation
+
+   Les slugs doivent être exacts : les liens entre les pages
+   les utilisent (fonction sg_page_url).
+
+4. Renseigner le Title SEO et la meta description dans le
+   plugin SEO, page par page (fournis dans les documents du cabinet).
+5. Coller le texte du corps de page dans l'editeur (voir ci-dessous).
+
+Coller le texte des 7 pages d'expertise
+---------------------------------------
+Le corps de chaque page se redige maintenant dans WordPress, plus
+dans le fichier du gabarit. Une correction faite ici survit aux
+mises a jour du theme.
+
+Pour chaque page, un fichier est fourni dans le dossier
+"contenu-a-coller" :
+
+  1. Ouvrir la page dans WordPress
+  2. Menu ... (trois points, en haut a droite) > Editeur de code
+  3. Coller la totalite du fichier correspondant
+  4. Revenir en mode visuel, puis Publier
+
+Passer par l'editeur de code et non l'editeur visuel : le contenu
+est deja au format bloc, les titres, listes et encadres sont
+reconnus tels quels.
+
+Ce qui reste dans le gabarit, et n'est donc pas modifiable depuis
+WordPress : le fil d'ariane, le titre H1, le chapo sous le titre,
+la FAQ et le bloc d'appel a l'action. Ils peuvent etre bascules
+dans l'editeur a leur tour si le besoin s'en fait sentir.
+
+Expertise 07 (accident de la route)
+-----------------------------------
+Livrée mais non validée par le cabinet. Ne créer la page que
+sur confirmation. Si elle est publiée, ajouter la 7e ligne dans
+page-competences.php et l'entrée correspondante au menu déroulant
+"Domaine" du formulaire de contact.
+
+Reste à faire (hors de cette livraison)
+---------------------------------------
+- Recâbler les 6 cartes de la page d'accueil (front-page.php) et de
+  page-expertise.php : elles pointent encore vers
+  /expertise-detail/#ancre
+- Redirections 301 depuis /litige-assurance/ et /expertise-detail/
+- Balisage FAQPage (données structurées)
+- Liens retour depuis les articles existants vers les pages d'expertise
+- Sitemap, Search Console, demande d'indexation
+- Rendre éditables le H1, le chapô et la FAQ (le corps de page l'est)
+- Styles de focus clavier et lien d'évitement
+
+Avant d'installer
+-----------------
+Ouvrir Réglages > Textes du site dans la version actuellement en
+ligne et ressaisir explicitement ces quatre textes, puis enregistrer.
+Leurs valeurs par défaut ont changé et ils basculeraient sinon :
+  Accueil > Sous-titre        (affiche : Cabinet d'avocat · Lyon)
+  Accueil > Section Expertise > Tag   (Domaines d'intervention)
+  Accueil > Section Contact > Titre   (Échangeons sur votre situation)
+  Accueil > Section Contact > Texte   (Chaque situation est unique...)

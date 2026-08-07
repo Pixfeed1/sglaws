@@ -2102,3 +2102,244 @@ ul, ol { list-style: none; }
   .lp-expertise__list:hover .lp-expertise__item { opacity:1; }
   .problem-card:hover { border-color:var(--border);box-shadow:none; }
 }
+
+/* =============================================
+   PAGES D'EXPERTISE (une page par domaine)
+   À ajouter à la fin de style.css, avant le bloc RESPONSIVE
+============================================= */
+
+/* --- Fil d'ariane --- */
+.exp-page__crumbs {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--grey-500);
+  margin-bottom: 1.2rem;
+}
+.exp-page__crumbs a { color: var(--grey-500); text-decoration: none; border-bottom: 1px solid var(--border); }
+.exp-page__crumbs a:hover { color: var(--black); border-bottom-color: var(--black); }
+.exp-page__crumbs span { margin: 0 0.5rem; }
+
+/* --- Chapô sous le titre de page --- */
+.exp-page__intro {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--grey-900);
+  max-width: 850px;
+  margin-top: clamp(1.5rem, 3vh, 2.5rem);
+}
+
+/* --- Corps de page --- */
+.exp-page { padding: clamp(80px, 12vh, 160px) 0; }
+.exp-page__inner { max-width: 900px; }
+
+.exp-page__section + .exp-page__section {
+  margin-top: clamp(45px, 6vh, 70px);
+  padding-top: clamp(45px, 6vh, 70px);
+  border-top: 1px solid var(--border);
+}
+
+.exp-page__heading {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--black);
+  margin-bottom: 1.4rem;
+}
+
+.exp-page__text p {
+  font-family: var(--sans);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.95;
+  color: var(--grey-700);
+  margin-bottom: 1.6em;
+}
+.exp-page__text p:last-child { margin-bottom: 0; }
+
+.exp-page__text ul,
+.exp-page__text ol { margin: 1em 0 1.6em; padding-left: 1.5em; }
+.exp-page__text ul { list-style-type: '–  '; }
+.exp-page__text ol { list-style-type: decimal; }
+.exp-page__text ul li,
+.exp-page__text ol li {
+  font-family: var(--sans);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.8;
+  color: var(--grey-700);
+  margin-bottom: 0.7em;
+}
+.exp-page__text ul li:last-child,
+.exp-page__text ol li:last-child { margin-bottom: 0; }
+.exp-page__text strong { color: var(--black); font-weight: 500; }
+
+/* --- Corps rédigé dans WordPress (Gutenberg) ---
+   Reprend à l'identique la mise en forme de .exp-page__text, mais en visant les
+   balises brutes produites par l'éditeur, qui ne porte aucune classe du thème.
+   Les traits de séparation, portés avant par un div par section, s'accrochent
+   désormais aux titres de niveau 2 — chaque H2 ouvre une section. */
+.exp-page__body > p,
+.exp-page__body li {
+  font-family: var(--sans);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.95;
+  color: var(--grey-700);
+}
+.exp-page__body > p { margin-bottom: 1.6em; }
+.exp-page__body > ul,
+.exp-page__body > ol { margin: 1em 0 1.6em; padding-left: 1.5em; }
+.exp-page__body > ul { list-style-type: '–  '; }
+.exp-page__body > ol { list-style-type: decimal; }
+.exp-page__body li { line-height: 1.8; margin-bottom: 0.7em; }
+.exp-page__body li:last-child { margin-bottom: 0; }
+.exp-page__body strong { color: var(--black); font-weight: 500; }
+
+.exp-page__body > h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--black);
+  margin-top: clamp(45px, 6vh, 70px);
+  padding-top: clamp(45px, 6vh, 70px);
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.4rem;
+}
+.exp-page__body > *:first-child { margin-top: 0; }
+.exp-page__body > h2:first-child { padding-top: 0; border-top: none; }
+.exp-page__body > *:last-child { margin-bottom: 0; }
+
+/* Sans cette règle un lien dans le texte serait invisible : la règle globale
+   « a { color: inherit; text-decoration: none } » le rendrait identique au reste. */
+.exp-page__body > p a,
+.exp-page__body li a {
+  color: var(--black);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+.exp-page__body > p a:hover,
+.exp-page__body li a:hover { border-bottom-color: var(--black); }
+
+/* --- Renvoi vers une publication du cabinet --- */
+.exp-page__aside {
+  margin-top: 2rem;
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--black);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--grey-700);
+}
+/* Dans le corps Gutenberg, « .exp-page__body > p » est plus spécifique que
+   « .exp-page__aside » et écraserait sa taille de texte. On la restitue. */
+.exp-page__body > p.exp-page__aside { font-size: 0.88rem; line-height: 1.7; }
+
+.exp-page__aside a { color: var(--black); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--border); }
+.exp-page__aside a:hover { border-bottom-color: var(--black); }
+
+/* --- Blocs média optionnels --- */
+.exp-page__media { margin: clamp(35px, 5vh, 55px) 0; }
+.exp-page__media img,
+.exp-page__media video { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.04); }
+.exp-page__media figcaption {
+  margin-top: 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--grey-500);
+  max-width: 620px;
+}
+.exp-page__gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+.exp-page__gallery img { aspect-ratio: 4/5; object-fit: cover; }
+
+/* --- FAQ --- */
+.exp-faq { padding: clamp(60px, 9vh, 110px) 0; background: var(--off-white); border-top: 1px solid var(--border); }
+.exp-faq__inner { max-width: 900px; }
+.exp-faq__heading {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: clamp(25px, 4vh, 40px);
+}
+.exp-faq__item { border-top: 1px solid var(--border); }
+.exp-faq__item:last-of-type { border-bottom: 1px solid var(--border); }
+.exp-faq__q {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: 1.4rem 3rem 1.4rem 0;
+  font-family: var(--sans);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--black);
+}
+.exp-faq__q::-webkit-details-marker { display: none; }
+.exp-faq__q::after {
+  content: '';
+  position: absolute;
+  right: 0.2rem;
+  top: 1.85rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform 0.35s var(--ease);
+}
+.exp-faq__item[open] .exp-faq__q::after { transform: translateY(25%) rotate(-135deg); }
+.exp-faq__a p {
+  font-family: var(--sans);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.9;
+  color: var(--grey-700);
+  margin: 0 0 1.6rem;
+  max-width: 720px;
+}
+
+/* --- Retour vers la page chapeau --- */
+.exp-page__back { padding: clamp(35px, 5vh, 55px) 0; border-top: 1px solid var(--border); }
+.exp-page__back a {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3px;
+}
+.exp-page__back a:hover { border-bottom-color: var(--black); }
+
+/* =============================================
+   PAGES D'EXPERTISE — RESPONSIVE
+============================================= */
+@media (max-width: 1024px) {
+  .exp-page__gallery { gap: 0.9rem; }
+}
+
+@media (max-width: 768px) {
+  .exp-page { padding: clamp(50px, 8vh, 80px) 0; }
+  .exp-page__intro { font-size: clamp(1.05rem, 4vw, 1.35rem); }
+  .exp-page__heading,
+  .exp-page__body > h2 { font-size: clamp(1.35rem, 5.5vw, 1.8rem); }
+  .exp-page__section + .exp-page__section,
+  .exp-page__body > h2 { margin-top: 32px; padding-top: 32px; }
+  .exp-page__body > h2:first-child { margin-top: 0; padding-top: 0; }
+  .exp-page__media { margin: 30px 0; }
+  .exp-page__gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  .exp-faq { padding: clamp(45px, 7vh, 70px) 0; }
+  .exp-faq__heading { font-size: clamp(1.35rem, 5.5vw, 1.8rem); }
+  .exp-faq__q { padding: 1.15rem 2.5rem 1.15rem 0; font-size: 1rem; }
+  .exp-faq__q::after { top: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .exp-page__crumbs { font-size: 0.68rem; }
+  .exp-page__gallery { grid-template-columns: 1fr; }
+  .exp-page__aside { padding-left: 1rem; }
+}

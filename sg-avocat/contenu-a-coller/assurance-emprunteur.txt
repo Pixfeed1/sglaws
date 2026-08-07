@@ -1,0 +1,46 @@
+<!-- wp:paragraph -->
+<p>Face à un refus d’assurance emprunteur, vous n’êtes pas démuni. Le cabinet Gueffie, installé à Lyon et intervenant sur l’ensemble du territoire, défend exclusivement les assurés face à ces refus.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Les garanties en jeu : ITT, IPP, IPT</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>L’assurance emprunteur couvre généralement l’incapacité temporaire totale de travail (ITT), l’invalidité permanente partielle (IPP) et l’invalidité permanente totale (IPT). Lorsque l’un de ces risques se réalise, l’assureur doit prendre le relais du remboursement, dans les conditions prévues au contrat. C’est précisément à ce stade que naissent les litiges.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Les deux motifs de refus les plus fréquents</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Le refus de garantie repose le plus souvent sur l’un de ces deux arguments :</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>un taux d’invalidité jugé insuffisant au regard du seuil contractuel ;</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>une prétendue fausse déclaration intentionnelle de risque lors de la souscription.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Ces motifs sont juridiquement contestables. Le seuil d’invalidité procède d’un barème dont l’application par le médecin mandaté par l’assureur peut être discutée. Quant à la fausse déclaration, elle suppose la démonstration d’une intention et d’un lien avec le risque réalisé, conditions que la compagnie ne remplit pas toujours.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">La méthode du cabinet</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Le cabinet analyse l’intégralité de votre dossier : fiche d’information préalable, conditions générales et particulières, rapports médicaux, questionnaire de santé. Cette lecture croisée permet d’identifier les failles du raisonnement de l’assureur, clause inopposable, barème mal appliqué, absence d’intention de dissimulation, et de vous donner une évaluation sincère de vos chances de succès avant toute action contentieuse.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>L’objectif n’est pas d’engager une procédure à tout prix, mais de rétablir un rapport de force que l’assuré subit rarement à armes égales.</p>
+<!-- /wp:paragraph -->

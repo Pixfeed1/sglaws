@@ -1,0 +1,42 @@
+<!-- wp:paragraph -->
+<p>Le cabinet Gueffie défend les maîtres d’ouvrage, copropriétaires et propriétaires face aux assureurs de la construction, à Lyon et sur l’ensemble du territoire.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Deux difficultés récurrentes</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Ces dossiers cumulent fréquemment deux obstacles :</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>L’établissement de l’origine du sinistre.</strong> Chaque partie, assureur, syndic, voisins, entreprises, tend à rattacher le dommage à une cause qui n’engage ni sa responsabilité ni sa garantie.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>L’exhaustivité des postes de préjudice.</strong> Tous ne sont pas spontanément envisagés, la perte de jouissance en étant l’exemple le plus fréquent.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Le risque d’une indemnisation partielle acceptée comme définitive</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Sans accompagnement, une indemnisation partielle est souvent acceptée comme définitive. Une fois le règlement encaissé et les travaux engagés, revenir sur une évaluation insuffisante devient difficile. C’est pourquoi le stade de l’expertise est décisif.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"exp-page__aside"} -->
+<p class="exp-page__aside">À lire également : <a href="/contester-rapport-expertise-assureur/">Contester le rapport d’expertise de son assureur : méthode et pièges à éviter</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">L’intervention du cabinet</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Le cabinet intervient dès le stade de l’expertise pour contester les conclusions défavorables, préserver les preuves utiles et vous donner une lecture objective de vos chances avant toute réclamation. Dans les dossiers de construction, dommages-ouvrage, garantie décennale, désordres de copropriété, la stratégie se joue tôt.</p>
+<!-- /wp:paragraph -->

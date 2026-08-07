@@ -1,0 +1,31 @@
+<!-- wp:paragraph -->
+<p>Le cabinet Gueffie défend les assurés dans ces litiges techniques, à Lyon et sur l’ensemble du territoire.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Le cœur du litige : le lien de causalité</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>En matière de catastrophe naturelle, sécheresse, inondation, mouvement de terrain, le contentieux porte rarement sur la reconnaissance de l’état de catastrophe, mais sur l’établissement du lien de causalité entre l’événement naturel reconnu et les désordres constatés. C’est sur ce terrain que l’assureur concentre sa résistance.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">La qualité des investigations techniques est déterminante</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Des analyses insuffisantes, des sondages incomplets ou une expertise contestable peuvent compromettre la démonstration du lien de causalité, et donc l’indemnisation. Dans ces dossiers, la maîtrise des opérations d’expertise conditionne l’issue. Une expertise mal encadrée dès l’origine se rattrape difficilement.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"exp-page__aside"} -->
+<p class="exp-page__aside">À lire également : <a href="/contester-rapport-expertise-assureur/">Contester le rapport d’expertise de son assureur : méthode et pièges à éviter</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">L’intervention du cabinet</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Le cabinet intervient pour encadrer la gestion du sinistre et les opérations d’expertise, afin d’obtenir les éléments techniques indispensables à l’appréciation du lien de causalité. Cette démarche permet ensuite de décider, en connaissance de cause, entre une négociation avec l’assureur et une action judiciaire.</p>
+<!-- /wp:paragraph -->
