@@ -302,6 +302,26 @@ function sg_page_url($slug) {
     return home_url('/' . $slug . '/');
 }
 
+/**
+ * Adresse de la page dédiée à un domaine d'expertise, numéroté de 1 à 6.
+ *
+ * Les six cartes pointaient vers une ancre sur une page unique : pour Google
+ * il n'existait qu'une seule page pour six expertises, et le référencement s'y
+ * diluait. Chaque domaine a maintenant sa page. Un numéro inconnu renvoie vers
+ * la page chapeau plutôt que vers une adresse inexistante.
+ */
+function sg_expertise_url($num) {
+    $slugs = [
+        1 => 'avocat-assurance-emprunteur',
+        2 => 'avocat-prevoyance-refus-garantie',
+        3 => 'avocat-catastrophe-naturelle-assurance',
+        4 => 'avocat-assurance-construction-dommage-ouvrage',
+        5 => 'avocat-responsabilite-civile-professionnelle',
+        6 => 'avocat-risque-industriel-assurance',
+    ];
+    return sg_page_url($slugs[$num] ?? 'competences');
+}
+
 function sg_text($key, $default = '') {
     $texts = get_option('sg_site_texts', []);
     return isset($texts[$key]) && $texts[$key] !== '' ? $texts[$key] : $default;

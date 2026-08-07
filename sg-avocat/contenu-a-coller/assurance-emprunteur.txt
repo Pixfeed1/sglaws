@@ -44,3 +44,7 @@
 <!-- wp:paragraph -->
 <p>L’objectif n’est pas d’engager une procédure à tout prix, mais de rétablir un rapport de force que l’assuré subit rarement à armes égales.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"exp-page__aside"} -->
+<p class="exp-page__aside">À lire également : <a href="/assurance-emprunteur-tableau-croise-cour-de-cassation/">Assurance emprunteur : la Cour de cassation encadre le tableau croisé</a></p>
+<!-- /wp:paragraph -->

@@ -139,14 +139,12 @@ $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'large') : 'http
           ['Droit Immobilier', 'Litiges locatifs, copropriété, vices cachés, troubles de voisinage, contentieux immobilier.'],
           ['Droit des Étrangers', 'Titres de séjour, asile, régularisation, recours administratifs, contentieux CNDA et tribunal administratif.'],
       ];
-      $detail_url = home_url('/expertise-detail/');
       foreach ($domains as $i => $d) :
           $num = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
           $title = sg_text("exp_d" . ($i+1) . "_title", $d[0]);
           $desc = sg_text("exp_d" . ($i+1) . "_desc", $d[1]);
-          $anchor = sanitize_title($title);
       ?>
-        <a href="<?php echo esc_url($detail_url . '#' . $anchor); ?>" class="expertise__item r" style="text-decoration:none;color:inherit;">
+        <a href="<?php echo esc_url(sg_expertise_url($i + 1)); ?>" class="expertise__item r" style="text-decoration:none;color:inherit;">
           <span class="expertise__num"><?php echo $num; ?></span>
           <h3 class="expertise__title"><?php echo esc_html($title); ?></h3>
           <p class="expertise__desc"><?php echo esc_html($desc); ?></p>

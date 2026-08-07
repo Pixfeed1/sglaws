@@ -134,9 +134,8 @@ $rdv_url = sg_text('land_rdv_url', '#contact');
               $num = str_pad($i, 2, '0', STR_PAD_LEFT);
               $title = sg_text("exp_d{$i}_title", '');
               if (!$title) continue;
-              $anchor = sanitize_title(wp_strip_all_tags($title));
           ?>
-            <a href="<?php echo sg_page_url('expertise-detail') . '#' . esc_attr($anchor); ?>" class="lp-expertise__item r">
+            <a href="<?php echo esc_url(sg_expertise_url($i)); ?>" class="lp-expertise__item r">
               <span class="lp-expertise__item-num"><?php echo $num; ?></span>
               <span class="lp-expertise__item-title"><?php echo esc_html($title); ?></span>
             </a>

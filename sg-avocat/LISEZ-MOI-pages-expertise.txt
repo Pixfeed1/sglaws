@@ -61,9 +61,8 @@ page-competences.php et l'entrée correspondante au menu déroulant
 
 Reste à faire (hors de cette livraison)
 ---------------------------------------
-- Recâbler les 6 cartes de la page d'accueil (front-page.php) et de
-  page-expertise.php : elles pointent encore vers
-  /expertise-detail/#ancre
+- (fait) Cartes de l'accueil, de la page Expertise et de la landing
+  recâblées vers les pages dédiées
 - Redirections 301 depuis /litige-assurance/ et /expertise-detail/
 - Balisage FAQPage (données structurées)
 - Liens retour depuis les articles existants vers les pages d'expertise
