@@ -55,14 +55,14 @@ function sg_render_textes_page() {
             <?php settings_fields('sg_textes_group'); ?>
 
             <h2 class="nav-tab-wrapper">
-                <a href="#tab-general" class="nav-tab nav-tab-active" onclick="sgTab(event,this,'general')">Général</a>
-                <a href="#tab-accueil" class="nav-tab" onclick="sgTab(event,this,'accueil')">Accueil</a>
-                <a href="#tab-landing" class="nav-tab" onclick="sgTab(event,this,'landing')">Landing</a>
-                <a href="#tab-expertise" class="nav-tab" onclick="sgTab(event,this,'expertise')">Expertise</a>
-                <a href="#tab-avocat" class="nav-tab" onclick="sgTab(event,this,'avocat')">Avocat</a>
-                <a href="#tab-contact" class="nav-tab" onclick="sgTab(event,this,'contact')">Contact</a>
-                <a href="#tab-articles" class="nav-tab" onclick="sgTab(event,this,'articles')">Articles</a>
-                <a href="#tab-404" class="nav-tab" onclick="sgTab(event,this,'404')">404</a>
+                <a href="#tab-general" class="nav-tab nav-tab-active" data-tab="general" onclick="sgTab(event,this,'general')">Général</a>
+                <a href="#tab-accueil" class="nav-tab" data-tab="accueil" onclick="sgTab(event,this,'accueil')">Accueil</a>
+                <a href="#tab-landing" class="nav-tab" data-tab="landing" onclick="sgTab(event,this,'landing')">Landing</a>
+                <a href="#tab-expertise" class="nav-tab" data-tab="expertise" onclick="sgTab(event,this,'expertise')">Expertise</a>
+                <a href="#tab-avocat" class="nav-tab" data-tab="avocat" onclick="sgTab(event,this,'avocat')">Avocat</a>
+                <a href="#tab-contact" class="nav-tab" data-tab="contact" onclick="sgTab(event,this,'contact')">Contact</a>
+                <a href="#tab-articles" class="nav-tab" data-tab="articles" onclick="sgTab(event,this,'articles')">Articles</a>
+                <a href="#tab-404" class="nav-tab" data-tab="404" onclick="sgTab(event,this,'404')">404</a>
             </h2>
 
             <!-- GÉNÉRAL -->
@@ -80,15 +80,6 @@ function sg_render_textes_page() {
                     <tr><th>Sous-texte</th><td><input type="text" name="sg_site_texts[loader_sub]" value="<?php echo $t('loader_sub', 'AVOCAT'); ?>" class="regular-text"></td></tr>
                 </table>
 
-                <h3>Formulaire de contact</h3>
-                <table class="form-table">
-                    <tr><th>Bouton d'envoi</th><td><input type="text" name="sg_site_texts[form_submit]" value="<?php echo $t('form_submit', 'Envoyer'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Domaines juridiques</th><td><textarea name="sg_site_texts[form_domains]" rows="2" class="large-text"><?php echo $ta('form_domains', 'Droit Pénal,Droit de la Famille,Droit des Affaires,Droit du Travail,Droit Immobilier,Droit des Étrangers,Autre'); ?></textarea><p class="description">Séparés par des virgules. Apparaissent dans le menu déroulant du formulaire.</p></td></tr>
-                    <tr><th>Enjeux du litige</th><td><textarea name="sg_site_texts[form_enjeux]" rows="2" class="large-text"><?php echo $ta('form_enjeux', '50 000 € – 100 000 €,100 000 € – 200 000 €,200 000 € – 500 000 €,Plus de 500 000 €,Je ne connais pas encore le montant'); ?></textarea><p class="description">Séparés par des virgules. Apparaissent dans le menu déroulant "Enjeu du litige".</p></td></tr>
-                    <tr><th>Label "Adresse"</th><td><input type="text" name="sg_site_texts[label_adresse]" value="<?php echo $t('label_adresse', 'Adresse'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Label "Téléphone"</th><td><input type="text" name="sg_site_texts[label_telephone]" value="<?php echo $t('label_telephone', 'Téléphone'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Label "Email"</th><td><input type="text" name="sg_site_texts[label_email]" value="<?php echo $t('label_email', 'Email'); ?>" class="regular-text"></td></tr>
-                </table>
             </div>
 
             <!-- ACCUEIL -->
@@ -311,8 +302,20 @@ function sg_render_textes_page() {
 
             <!-- CONTACT -->
             <div id="sg-tab-contact" class="sg-tab-content" style="display:none;">
+                <h3>Page Contact</h3>
                 <table class="form-table">
                     <tr><th>Introduction</th><td><textarea name="sg_site_texts[contact_intro]" rows="2" class="large-text"><?php echo $ta('contact_intro', 'Pour toute demande de consultation ou d\'information, n\'hésitez pas à contacter le cabinet. Chaque situation mérite une attention particulière.'); ?></textarea></td></tr>
+                </table>
+
+                <h3>Formulaire de contact</h3>
+                <p class="description">Ces réglages valent pour tous les formulaires du site, y compris celui de la page d'accueil.</p>
+                <table class="form-table">
+                    <tr><th>Bouton d'envoi</th><td><input type="text" name="sg_site_texts[form_submit]" value="<?php echo $t('form_submit', 'Envoyer'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Domaines juridiques</th><td><textarea name="sg_site_texts[form_domains]" rows="2" class="large-text"><?php echo $ta('form_domains', 'Droit Pénal,Droit de la Famille,Droit des Affaires,Droit du Travail,Droit Immobilier,Droit des Étrangers,Autre'); ?></textarea><p class="description">Séparés par des virgules. Apparaissent dans le menu déroulant du formulaire.</p></td></tr>
+                    <tr><th>Enjeux du litige</th><td><textarea name="sg_site_texts[form_enjeux]" rows="2" class="large-text"><?php echo $ta('form_enjeux', '50 000 € – 100 000 €,100 000 € – 200 000 €,200 000 € – 500 000 €,Plus de 500 000 €,Je ne connais pas encore le montant'); ?></textarea><p class="description">Séparés par des virgules. Apparaissent dans le menu déroulant "Enjeu du litige".</p></td></tr>
+                    <tr><th>Label "Adresse"</th><td><input type="text" name="sg_site_texts[label_adresse]" value="<?php echo $t('label_adresse', 'Adresse'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Label "Téléphone"</th><td><input type="text" name="sg_site_texts[label_telephone]" value="<?php echo $t('label_telephone', 'Téléphone'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Label "Email"</th><td><input type="text" name="sg_site_texts[label_email]" value="<?php echo $t('label_email', 'Email'); ?>" class="regular-text"></td></tr>
                 </table>
             </div>
 
@@ -360,18 +363,51 @@ function sg_render_textes_page() {
                 </table>
             </div>
 
-            <?php submit_button('Enregistrer les modifications'); ?>
+            <div class="sg-save-bar">
+                <?php submit_button('Enregistrer les modifications', 'primary', 'submit', false); ?>
+            </div>
         </form>
     </div>
 
+    <style>
+    /* Le bouton reste atteignable : l'onglet Landing compte 25 champs. */
+    .sg-save-bar {
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+        margin-top: 20px;
+        padding: 12px 0;
+        background: #f0f0f1;
+        border-top: 1px solid #c3c4c7;
+    }
+    </style>
+
     <script>
+    // L'onglet actif survit à l'enregistrement : sans ça, options.php recharge
+    // la page et l'utilisateur retombe sur « Général », en doutant d'avoir sauvegardé.
+    function sgShowTab(tab) {
+        var pane = document.getElementById('sg-tab-' + tab);
+        var link = document.querySelector('.nav-tab[data-tab="' + tab + '"]');
+        if (!pane || !link) return false;
+        document.querySelectorAll('.nav-tab').forEach(function (t) { t.classList.remove('nav-tab-active'); });
+        document.querySelectorAll('.sg-tab-content').forEach(function (c) { c.style.display = 'none'; });
+        link.classList.add('nav-tab-active');
+        pane.style.display = 'block';
+        return true;
+    }
+
     function sgTab(event, el, tab) {
         event.preventDefault();
-        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('nav-tab-active'));
-        document.querySelectorAll('.sg-tab-content').forEach(c => c.style.display = 'none');
-        el.classList.add('nav-tab-active');
-        document.getElementById('sg-tab-' + tab).style.display = 'block';
+        if (sgShowTab(tab)) {
+            try { sessionStorage.setItem('sgActiveTab', tab); } catch (e) {}
+        }
     }
+
+    (function () {
+        var saved = null;
+        try { saved = sessionStorage.getItem('sgActiveTab'); } catch (e) {}
+        if (saved) { sgShowTab(saved); }
+    })();
     </script>
     <?php
 }
