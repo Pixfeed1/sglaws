@@ -47,10 +47,15 @@ Le dossier contenu-a-coller/ contient le texte d'origine de
 chaque page. Il sert a la creation automatique, et de sauvegarde
 si l'on veut repartir du texte initial.
 
-Ce qui reste dans le gabarit, et n'est donc pas modifiable depuis
-WordPress : le fil d'ariane, le titre H1, le chapo sous le titre,
-la FAQ et le bloc d'appel a l'action. Ils peuvent etre bascules
-dans l'editeur a leur tour si le besoin s'en fait sentir.
+Ce qui se modifie depuis WordPress, page par page :
+  - le titre H1 : c'est le titre de la page. Un tiret cadratin (—)
+    le coupe en deux lignes, la seconde en italique.
+  - le chapo sous le titre : c'est l'extrait de la page
+    (panneau de droite, section Extrait).
+  - le corps et la FAQ : dans l'editeur, la FAQ etant faite de
+    blocs « Details ».
+Restent dans le gabarit : le fil d'ariane et le bloc d'appel a
+l'action en bas de page.
 
 Expertise 07 (accident de la route)
 -----------------------------------
@@ -66,10 +71,11 @@ Reste à faire (hors de cette livraison)
 - (fait) Redirections 301 de /litige-assurance/ et /expertise-detail/
   vers /competences/, assurees par le theme. Rien a configurer chez
   l'hebergeur. Elles ne s'activent que si la page chapeau existe.
-- Balisage FAQPage (données structurées)
+- Balisage FAQPage : a faire avec le bloc FAQ du plugin SEO,
+  la FAQ etant desormais dans l'editeur
 - Liens retour depuis les articles existants vers les pages d'expertise
 - Sitemap, Search Console, demande d'indexation
-- Rendre éditables le H1, le chapô et la FAQ (le corps de page l'est)
+- (fait) H1, chapo et FAQ modifiables depuis WordPress
 - Styles de focus clavier et lien d'évitement
 
 Avant d'installer

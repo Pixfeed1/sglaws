@@ -72,3 +72,39 @@
 <!-- wp:paragraph -->
 <p>Avant toute réponse à l’assureur, le cabinet analyse le rapport d’expertise, les pièces médicales et les éléments du dossier pour mesurer l’écart entre l’offre et l’indemnisation réellement due. L’objectif n’est pas d’allonger inutilement la procédure, mais de ne pas céder à la pression d’un règlement rapide et insuffisant, et d’obtenir, par la négociation ou, si nécessaire, devant le juge, la réparation intégrale de votre préjudice.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Ce que les victimes demandent le plus souvent</h2>
+<!-- /wp:heading -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Dois-je accepter la première offre de l’assureur ?</summary>
+<!-- wp:paragraph -->
+<p>Rien ne vous y oblige. Une première offre est souvent sous-évaluée et peut intervenir avant la consolidation de votre état. La faire analyser avant de répondre permet de mesurer l’écart avec votre préjudice réel et d’éviter une renonciation définitive.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Puis-je contester l’expertise médicale de l’assureur ?</summary>
+<!-- wp:paragraph -->
+<p>Oui. Les conclusions de l’expert mandaté par l’assureur ne sont pas intangibles : taux de déficit, imputabilité, date de consolidation peuvent être discutés, au besoin par une nouvelle expertise. L’assistance dès ce stade est déterminante.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Comment est financé le recours à un avocat ?</summary>
+<!-- wp:paragraph -->
+<p>Votre contrat peut comporter une protection juridique susceptible de prendre en charge tout ou partie des honoraires ; par ailleurs, les frais engagés peuvent être réclamés dans le cadre de la procédure. Ce point est examiné dès la première consultation, en toute transparence.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Dans quels délais faut-il agir ?</summary>
+<!-- wp:paragraph -->
+<p>Il est préférable d’intervenir tôt, avant l’expertise et avant toute réponse à l’offre, pour préserver les preuves médicales et vos droits. Des délais de prescription encadrent par ailleurs l’action : une première consultation permet de les sécuriser.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->

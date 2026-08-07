@@ -20,22 +20,13 @@ get_header(); ?>
     </div>
     <div class="expertise__list">
       <?php
-      $defaults = [
-          ['Droit Pénal', 'Défense pénale à tous les stades de la procédure. Garde à vue, instruction, audience correctionnelle et criminelle.'],
-          ['Droit de la Famille', 'Divorce, séparation, garde d\'enfants, pension alimentaire, prestation compensatoire, succession.'],
-          ['Droit des Affaires', 'Conseil et contentieux commercial, droit des sociétés, litiges entre associés, contentieux contractuels.'],
-          ['Droit du Travail', 'Défense salariés et employeurs. Licenciement, harcèlement, rupture conventionnelle, prud\'hommes.'],
-          ['Droit Immobilier', 'Litiges locatifs, copropriété, vices cachés, troubles de voisinage, contentieux immobilier.'],
-          ['Droit des Étrangers', 'Titres de séjour, asile, régularisation, recours administratifs, contentieux CNDA et tribunal administratif.'],
-      ];
-      foreach ($defaults as $i => $d) :
-          $num = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
-          $title = sg_text("exp_d".($i+1)."_title", $d[0]);
+      foreach (sg_expertises() as $e) :
+          $num = $e['num']; $title = $e['title'];
       ?>
-        <a href="<?php echo esc_url(sg_expertise_url($i + 1)); ?>" class="expertise__item r" style="text-decoration:none;color:inherit;">
+        <a href="<?php echo esc_url($e['url']); ?>" class="expertise__item r" style="text-decoration:none;color:inherit;">
           <span class="expertise__num"><?php echo $num; ?></span>
           <h3 class="expertise__title"><?php echo esc_html($title); ?></h3>
-          <p class="expertise__desc"><?php echo esc_html(sg_text("exp_d".($i+1)."_desc", $d[1])); ?></p>
+          <p class="expertise__desc"><?php echo esc_html($e['desc']); ?></p>
           <span class="expertise__arrow">↗</span>
         </a>
       <?php endforeach; ?>

@@ -130,16 +130,12 @@ $rdv_url = sg_text('land_rdv_url', '#contact');
       </div>
       <div>
         <div class="lp-expertise__list">
-          <?php for ($i = 1; $i <= 6; $i++) :
-              $num = str_pad($i, 2, '0', STR_PAD_LEFT);
-              $title = sg_text("exp_d{$i}_title", '');
-              if (!$title) continue;
-          ?>
-            <a href="<?php echo esc_url(sg_expertise_url($i)); ?>" class="lp-expertise__item r">
+          <?php foreach (sg_expertises() as $e) : $num = $e['num']; $title = $e['title']; ?>
+            <a href="<?php echo esc_url($e['url']); ?>" class="lp-expertise__item r">
               <span class="lp-expertise__item-num"><?php echo $num; ?></span>
               <span class="lp-expertise__item-title"><?php echo esc_html($title); ?></span>
             </a>
-          <?php endfor; ?>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>

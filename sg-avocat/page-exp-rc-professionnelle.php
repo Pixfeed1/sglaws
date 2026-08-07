@@ -10,11 +10,8 @@ get_header();
       <a href="<?php echo home_url(); ?>">Accueil</a><span>·</span><a href="<?php echo sg_page_url('competences'); ?>">Domaines d&rsquo;intervention</a><span>·</span>Responsabilité civile professionnelle
     </p>
     <span class="section-tag r">Domaines d&rsquo;intervention · 05</span>
-    <h1 class="page-header__title">
-      <span class="lr"><span>Avocat en responsabilité</span></span>
-      <span class="lr"><span><em>civile professionnelle</em></span></span>
-    </h1>
-    <p class="exp-page__intro r">Votre responsabilité professionnelle est mise en cause par un client ou un tiers, à la suite d’un dommage survenu dans le cadre de votre activité. L’enjeu est double : votre garantie, et la continuité de votre exercice.</p>
+    <h1 class="page-header__title"><?php echo sg_titre_deux_lignes(); ?></h1>
+    <p class="exp-page__intro r"><?php echo esc_html(sg_chapo('Votre responsabilité professionnelle est mise en cause par un client ou un tiers, à la suite d’un dommage survenu dans le cadre de votre activité. L’enjeu est double : votre garantie, et la continuité de votre exercice.')); ?></p>
   </div>
 </div>
 
@@ -28,26 +25,6 @@ get_header();
           the_content();
       endwhile;
       ?>
-    </div>
-  </div>
-</section>
-
-<section class="exp-faq">
-  <div class="container">
-    <div class="exp-faq__inner">
-      <span class="section-tag r">Questions fréquentes</span>
-      <h2 class="exp-faq__heading r">Ce que les professionnels demandent le plus souvent</h2>
-
-      <details class="exp-faq__item r">
-        <summary class="exp-faq__q">L’assureur applique une règle proportionnelle. Puis-je la contester ?</summary>
-        <div class="exp-faq__a"><p>Oui. La règle proportionnelle suppose la preuve, à la charge de l’assureur, d’une déclaration de risque inexacte et non intentionnelle. Ses conditions sont encadrées et son calcul peut être discuté.</p></div>
-      </details>
-
-      <details class="exp-faq__item r">
-        <summary class="exp-faq__q">Dois-je attendre l’issue de la mise en cause pour agir ?</summary>
-        <div class="exp-faq__a"><p>Non. Plus l’intervention est précoce, mieux les preuves sont préservées et les responsabilités cadrées. Attendre expose à des choix de gestion qui réduisent la marge de négociation.</p></div>
-      </details>
-
     </div>
   </div>
 </section>

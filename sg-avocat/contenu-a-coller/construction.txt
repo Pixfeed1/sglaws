@@ -40,3 +40,23 @@
 <!-- wp:paragraph -->
 <p>Le cabinet intervient dès le stade de l’expertise pour contester les conclusions défavorables, préserver les preuves utiles et vous donner une lecture objective de vos chances avant toute réclamation. Dans les dossiers de construction, dommages-ouvrage, garantie décennale, désordres de copropriété, la stratégie se joue tôt.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Ce que les propriétaires demandent le plus souvent</h2>
+<!-- /wp:heading -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>L’assureur dommages-ouvrage ne répond pas dans les délais. Que faire ?</summary>
+<!-- wp:paragraph -->
+<p>L’assureur dommages-ouvrage est tenu à des délais stricts pour se prononcer et formuler une offre. Leur non-respect ouvre des droits à l’assuré, y compris des sanctions. Un examen du calendrier de gestion est la première étape.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>J’ai déjà accepté une indemnisation. Est-il trop tard ?</summary>
+<!-- wp:paragraph -->
+<p>Cela dépend des termes de l’accord et des postes de préjudice omis. Certains chefs de préjudice, comme la perte de jouissance ou des désordres évolutifs, peuvent encore être discutés. Une analyse au cas par cas est nécessaire.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->

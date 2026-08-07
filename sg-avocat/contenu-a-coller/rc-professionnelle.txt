@@ -43,3 +43,23 @@
 <!-- wp:paragraph -->
 <p>Le cabinet intervient dès la déclaration de sinistre, avant que certaines erreurs ne compromettent définitivement vos droits à indemnisation. L’objectif : obtenir dans les meilleurs délais une indemnisation conforme aux garanties du contrat, sans céder à la pression d’un règlement rapide mais insuffisant, susceptible de fragiliser la poursuite de l’activité.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Ce que les professionnels demandent le plus souvent</h2>
+<!-- /wp:heading -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>L’assureur applique une règle proportionnelle. Puis-je la contester ?</summary>
+<!-- wp:paragraph -->
+<p>Oui. La règle proportionnelle suppose la preuve, à la charge de l’assureur, d’une déclaration de risque inexacte et non intentionnelle. Ses conditions sont encadrées et son calcul peut être discuté.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Dois-je attendre l’issue de la mise en cause pour agir ?</summary>
+<!-- wp:paragraph -->
+<p>Non. Plus l’intervention est précoce, mieux les preuves sont préservées et les responsabilités cadrées. Attendre expose à des choix de gestion qui réduisent la marge de négociation.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->

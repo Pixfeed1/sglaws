@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
  * @author PixFeed (pixfeed.net)
  */
 
-define('SG_VERSION', '1.3.0');
+define('SG_VERSION', '1.4.0');
 define('SG_DIR', get_template_directory());
 define('SG_URI', get_template_directory_uri());
 
@@ -103,15 +103,14 @@ function sg_setup_pages() {
  */
 function sg_setup_expertise_pages() {
     $expertises = [
-        'competences' => ['Domaines d\'intervention', 'page-competences.php', null],
-        'avocat-assurance-emprunteur' => ['Assurance emprunteur', 'page-exp-assurance-emprunteur.php', 'assurance-emprunteur'],
-        'avocat-prevoyance-refus-garantie' => ['Prévoyance', 'page-exp-prevoyance.php', 'prevoyance'],
-        'avocat-catastrophe-naturelle-assurance' => ['Catastrophe naturelle', 'page-exp-catastrophe-naturelle.php', 'catastrophe-naturelle'],
-        'avocat-assurance-construction-dommage-ouvrage' => ['Construction et dommage-ouvrage', 'page-exp-construction.php', 'construction'],
-        'avocat-responsabilite-civile-professionnelle' => ['Responsabilité civile professionnelle', 'page-exp-rc-professionnelle.php', 'rc-professionnelle'],
-        'avocat-risque-industriel-assurance' => ['Risque industriel', 'page-exp-risque-industriel.php', 'risque-industriel'],
-        // Brouillon : le cabinet ne s'est pas encore prononcé sur ce domaine.
-        'avocat-accident-de-la-route-indemnisation' => ['Accident de la route', 'page-exp-accident-route.php', 'accident-route', 'draft'],
+        'competences' => ['Domaines d’intervention — en droit des assurances', 'page-competences.php', null, 'Le cabinet Gueffie intervient exclusivement en droit des assurances, au service des assurés. Face à un sinistre, assuré et assureur ne disposent pas des mêmes armes : la compagnie s’appuie sur un réseau d’experts mandatés pour limiter l’indemnisation. L’intervention du cabinet rétablit l’équilibre.'],
+        'avocat-assurance-emprunteur' => ['Refus d’assurance emprunteur — contester le refus de garantie', 'page-exp-assurance-emprunteur.php', 'assurance-emprunteur', 'Vous avez souscrit une assurance emprunteur pour garantir le remboursement de votre crédit en cas d’accident de la vie. Aujourd’hui, votre état de santé ne vous permet plus de travailler, mais l’assureur refuse de prendre en charge vos mensualités.'],
+        'avocat-prevoyance-refus-garantie' => ['Avocat en assurance prévoyance — contester le refus d’indemnisation', 'page-exp-prevoyance.php', 'prevoyance', 'Un contrat de prévoyance, individuel ou collectif, a une fonction simple : prendre le relais de vos revenus lorsque la maladie ou l’accident vous empêche de travailler. Lorsque l’assureur refuse cette garantie, alors que vous êtes en arrêt de travail ou reconnu invalide, les conséquences sont immédiates et souvent lourdes.'],
+        'avocat-catastrophe-naturelle-assurance' => ['Avocat en assurance — catastrophe naturelle', 'page-exp-catastrophe-naturelle.php', 'catastrophe-naturelle', 'L’arrêté de reconnaissance de l’état de catastrophe naturelle est publié. Vous pensez la prise en charge acquise. Pourtant, la compagnie conteste le lien entre les dommages affectant votre bien et l’événement climatique reconnu.'],
+        'avocat-assurance-construction-dommage-ouvrage' => ['Avocat en assurance construction — et dommage-ouvrage', 'page-exp-construction.php', 'construction', 'Votre bien est endommagé. L’assureur dommages-ouvrage tarde à répondre, refuse la prise en charge, ou conteste l’origine des désordres.'],
+        'avocat-responsabilite-civile-professionnelle' => ['Avocat en responsabilité — civile professionnelle', 'page-exp-rc-professionnelle.php', 'rc-professionnelle', 'Votre responsabilité professionnelle est mise en cause par un client ou un tiers, à la suite d’un dommage survenu dans le cadre de votre activité. L’enjeu est double : votre garantie, et la continuité de votre exercice.'],
+        'avocat-risque-industriel-assurance' => ['Avocat en risque industriel — sinistre et assurance', 'page-exp-risque-industriel.php', 'risque-industriel', 'Un sinistre majeur survient sur votre site ou implique l’un de vos produits. Plusieurs assureurs et responsables sont alors susceptibles d’être mis en cause.'],
+        'avocat-accident-de-la-route-indemnisation' => ['Avocat en indemnisation des victimes — d’accident de la route', 'page-exp-accident-route.php', 'accident-route', 'Après un accident de la route, la loi impose à l’assureur de vous présenter une offre d’indemnisation. Cette offre est souvent inférieure à ce que votre préjudice justifie.', 'draft'],
     ];
 
     foreach ($expertises as $slug => $e) {
@@ -129,7 +128,8 @@ function sg_setup_expertise_pages() {
             'post_title'   => $e[0],
             'post_name'    => $slug,
             'post_content' => $body,
-            'post_status'  => $e[3] ?? 'publish',
+            'post_excerpt' => $e[3] ?? '',   // sert de chapô sous le titre
+            'post_status'  => $e[4] ?? 'publish',
             'post_type'    => 'page',
         ]);
         if ($id && !is_wp_error($id)) {
@@ -138,17 +138,47 @@ function sg_setup_expertise_pages() {
     }
 }
 
+/**
+ * Alerte si la page Compétences existe déjà sans utiliser le gabarit chapeau.
+ *
+ * Le thème ne recrée jamais une page dont l'adresse existe : une page
+ * /competences/ antérieure garde donc son ancien modèle et son ancien contenu,
+ * et la page chapeau livrée n'est jamais utilisée — sans que rien ne le
+ * signale. Le seul geste manquant étant le choix du modèle, autant le dire.
+ */
+add_action('admin_notices', function () {
+    if (!current_user_can('edit_pages')) {
+        return;
+    }
+    $page = get_page_by_path('competences');
+    if (!$page || get_post_meta($page->ID, '_wp_page_template', true) === 'page-competences.php') {
+        return;
+    }
+    printf(
+        '<div class="notice notice-warning"><p><strong>Thème S-G Avocat.</strong> La page « %s » n\'utilise pas le modèle « Domaines d\'intervention (page chapeau) » : les six domaines ne s\'affichent donc pas comme prévu. <a href="%s">Ouvrir la page</a>, puis choisir ce modèle dans Attributs de page.</p></div>',
+        esc_html($page->post_title),
+        esc_url((string) get_edit_post_link($page->ID))
+    );
+});
+
 /* =============================================
    ENQUEUE
 ============================================= */
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sg-style', SG_URI . '/style.css', [], SG_VERSION);
 
-    // Remove bloat
-    wp_dequeue_style('wp-block-library');
-    wp_dequeue_style('wp-block-library-theme');
-    wp_dequeue_style('global-styles');
-    wp_dequeue_style('classic-theme-styles');
+    /* Allègement — sauf sur les pages dont le corps est rédigé dans l'éditeur.
+       Là, retirer ces feuilles ferait sortir sans style tout bloc que le thème
+       n'a pas restylé à la main : image, citation, tableau, colonnes. Et sans
+       global-styles, une couleur ou une taille choisie dans l'éditeur produit
+       une classe sans définition. Le thème ne peut pas deviner ce qui sera
+       inséré : sur ces gabarits, on laisse WordPress fournir sa base. */
+    if (!is_page_template(sg_gabarits_editeur())) {
+        wp_dequeue_style('wp-block-library');
+        wp_dequeue_style('wp-block-library-theme');
+        wp_dequeue_style('global-styles');
+        wp_dequeue_style('classic-theme-styles');
+    }
 
     // JS in footer
     wp_enqueue_script('sg-gsap', SG_URI . '/js/gsap.min.js', [], '3.12.5', true);
@@ -332,6 +362,101 @@ function sg_page_url($slug) {
 }
 
 /**
+ * Gabarits dont le corps est rédigé dans l'éditeur WordPress.
+ *
+ * Ils ont besoin des feuilles de style de blocs, que le thème retire partout
+ * ailleurs. Liste unique, pour qu'ajouter un gabarit ne demande pas de penser
+ * à un second endroit.
+ */
+function sg_gabarits_editeur() {
+    return [
+        'page-competences.php',
+        'page-exp-assurance-emprunteur.php',
+        'page-exp-prevoyance.php',
+        'page-exp-catastrophe-naturelle.php',
+        'page-exp-construction.php',
+        'page-exp-rc-professionnelle.php',
+        'page-exp-risque-industriel.php',
+        'page-exp-accident-route.php',
+    ];
+}
+
+/**
+ * Titre de page rendu sur deux lignes, la seconde en italique.
+ *
+ * Le texte vient du titre de la page WordPress : le cabinet peut donc corriger
+ * lui-même le H1 de ses pages, ce qu'un titre inscrit dans le gabarit
+ * interdisait. Un tiret cadratin sépare les deux lignes ; sans lui, le titre
+ * s'affiche sur une seule, sans rien casser.
+ */
+function sg_titre_deux_lignes($titre = '') {
+    $titre  = $titre !== '' ? $titre : get_the_title();
+    $lignes = array_map('trim', explode('—', $titre, 2));
+    $out    = '<span class="lr"><span>' . esc_html($lignes[0]) . '</span></span>';
+    if (!empty($lignes[1])) {
+        $out .= '<span class="lr"><span><em>' . esc_html($lignes[1]) . '</em></span></span>';
+    }
+    return $out;
+}
+
+/**
+ * Chapô affiché sous le titre : l'extrait de la page, s'il est renseigné.
+ * À défaut, le texte fourni par le gabarit, pour qu'une page vide reste lisible.
+ */
+function sg_chapo($defaut = '') {
+    $extrait = has_excerpt() ? get_the_excerpt() : '';
+    return $extrait !== '' ? $extrait : $defaut;
+}
+
+/**
+ * Libellé court de la page pour le fil d'Ariane : la première ligne du titre,
+ * le titre complet étant trop long pour cet usage.
+ */
+function sg_libelle_court($titre = '') {
+    $titre  = $titre !== '' ? $titre : get_the_title();
+    $lignes = array_map('trim', explode('—', $titre, 2));
+    return $lignes[0];
+}
+
+/* Nombre d'emplacements de domaines proposés dans l'écran Textes. Un
+   emplacement sans titre n'est affiché nulle part : ajouter un domaine se fait
+   depuis l'administration, sans toucher aux gabarits. */
+define('SG_MAX_EXPERTISES', 8);
+
+/**
+ * Domaines d'intervention, dans l'ordre, tels qu'affichés par l'accueil, la
+ * page Expertise, la page chapeau et la landing.
+ *
+ * Source unique : les quatre gabarits reprenaient chacun leur propre liste, ce
+ * qui obligeait à modifier quatre fichiers pour ajouter un domaine, et laissait
+ * la page chapeau diverger des autres.
+ */
+function sg_expertises() {
+    $defauts = [
+        1 => ['Assurance emprunteur', 'Refus de prise en charge de vos mensualités (ITT, IPP, IPT) fondé sur un seuil d’invalidité ou une fausse déclaration ? Le cabinet conteste ces refus.'],
+        2 => ['Prévoyance individuelle et collective', 'Après un arrêt de travail ou une invalidité, l’assureur refuse sa garantie : maladie antérieure, fausse déclaration, fin de contrat de travail.'],
+        3 => ['Catastrophes naturelles', 'L’état de catastrophe naturelle est reconnu, mais l’assureur conteste le lien entre vos dommages et l’événement climatique.'],
+        4 => ['Assurance construction et habitation', 'Désordres, malfaçons, refus ou lenteur de l’assureur dommages-ouvrage, contestation de l’origine du sinistre.'],
+        5 => ['Responsabilité civile professionnelle', 'Votre responsabilité est mise en cause, ou l’assureur applique une règle proportionnelle réduisant l’indemnisation.'],
+        6 => ['Risque industriel', 'Sinistre majeur, défaut produit, assureurs et responsables multiples : identifier le véritable débiteur de l’indemnisation.'],
+    ];
+    $out = [];
+    for ($i = 1; $i <= SG_MAX_EXPERTISES; $i++) {
+        $titre = sg_text("exp_d{$i}_title", $defauts[$i][0] ?? '');
+        if (!$titre) {
+            continue;
+        }
+        $out[$i] = [
+            'num'   => str_pad(count($out) + 1, 2, '0', STR_PAD_LEFT),
+            'title' => $titre,
+            'desc'  => sg_text("exp_d{$i}_desc", $defauts[$i][1] ?? ''),
+            'url'   => sg_expertise_url($i),
+        ];
+    }
+    return $out;
+}
+
+/**
  * Adresse de la page dédiée à un domaine d'expertise, numéroté de 1 à 6.
  *
  * Les six cartes pointaient vers une ancre sur une page unique : pour Google
@@ -340,6 +465,16 @@ function sg_page_url($slug) {
  * la page chapeau plutôt que vers une adresse inexistante.
  */
 function sg_expertise_url($num) {
+    /* La destination est choisie domaine par domaine dans l'écran Textes.
+       Sans ce champ, le lien découlerait de la position de la carte : réordonner
+       les titres suffirait à envoyer la carte 2 vers la page d'un autre domaine,
+       sans la moindre alerte. */
+    $page_id = (int) sg_text("exp_d{$num}_page", 0);
+    if ($page_id && get_post_status($page_id) === 'publish') {
+        return get_permalink($page_id);
+    }
+
+    // Repli tant que le champ n'est pas renseigné : l'ordre d'origine.
     $slugs = [
         1 => 'avocat-assurance-emprunteur',
         2 => 'avocat-prevoyance-refus-garantie',

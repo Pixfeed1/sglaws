@@ -10,11 +10,8 @@ get_header();
       <a href="<?php echo home_url(); ?>">Accueil</a><span>·</span><a href="<?php echo sg_page_url('competences'); ?>">Domaines d&rsquo;intervention</a><span>·</span>Risque industriel
     </p>
     <span class="section-tag r">Domaines d&rsquo;intervention · 06</span>
-    <h1 class="page-header__title">
-      <span class="lr"><span>Avocat en risque industriel :</span></span>
-      <span class="lr"><span><em>sinistre et assurance</em></span></span>
-    </h1>
-    <p class="exp-page__intro r">Un sinistre majeur survient sur votre site ou implique l’un de vos produits. Plusieurs assureurs et responsables sont alors susceptibles d’être mis en cause.</p>
+    <h1 class="page-header__title"><?php echo sg_titre_deux_lignes(); ?></h1>
+    <p class="exp-page__intro r"><?php echo esc_html(sg_chapo('Un sinistre majeur survient sur votre site ou implique l’un de vos produits. Plusieurs assureurs et responsables sont alors susceptibles d’être mis en cause.')); ?></p>
   </div>
 </div>
 
@@ -28,26 +25,6 @@ get_header();
           the_content();
       endwhile;
       ?>
-    </div>
-  </div>
-</section>
-
-<section class="exp-faq">
-  <div class="container">
-    <div class="exp-faq__inner">
-      <span class="section-tag r">Questions fréquentes</span>
-      <h2 class="exp-faq__heading r">Ce que les entreprises demandent le plus souvent</h2>
-
-      <details class="exp-faq__item r">
-        <summary class="exp-faq__q">Plusieurs assureurs se renvoient la responsabilité. Comment avancer ?</summary>
-        <div class="exp-faq__a"><p>La priorité est de figer les faits techniques et de cadrer les expertises avant que les positions ne se déplacent. L’identification du débiteur final se construit sur des preuves préservées tôt.</p></div>
-      </details>
-
-      <details class="exp-faq__item r">
-        <summary class="exp-faq__q">Le sinistre implique un défaut produit. Quelles garanties mobiliser ?</summary>
-        <div class="exp-faq__a"><p>Selon les cas : responsabilité civile, garantie des produits livrés, pertes d’exploitation. Le périmètre exact dépend des contrats en présence, dont l’articulation doit être analysée précisément.</p></div>
-      </details>
-
     </div>
   </div>
 </section>

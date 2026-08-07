@@ -4,7 +4,7 @@ Theme URI: https://pixfeed.net
 Description: Thème sur mesure pour le cabinet de Me Seri Gueffie, avocat en droit des assurances au Barreau de Lyon. Design minimaliste, performant et optimisé SEO.
 Author: PixFeed
 Author URI: https://pixfeed.net
-Version: 1.3.0
+Version: 1.4.0
 License: Proprietary
 Text Domain: sg-avocat
 Requires at least: 6.0
@@ -2232,6 +2232,63 @@ ul, ol { list-style: none; }
   line-height: 1.7;
   color: var(--grey-700);
 }
+/* Blocs que l'éditeur permet d'insérer et que le thème doit accorder à sa
+   propre mise en page : image, citation, tableau, séparateur. WordPress fournit
+   leur structure, ces règles leur donnent la typographie et les teintes du site. */
+.exp-page__body figure,
+.exp-page__body .wp-block-image { margin: clamp(35px, 5vh, 55px) 0; }
+.exp-page__body .wp-block-image img { width: 100%; height: auto; filter: grayscale(1) contrast(1.04); }
+.exp-page__body figcaption {
+  margin-top: 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--grey-500);
+  max-width: 620px;
+}
+.exp-page__body blockquote {
+  margin: clamp(30px, 4vh, 45px) 0;
+  padding-left: 1.6rem;
+  border-left: 2px solid var(--black);
+}
+.exp-page__body blockquote p {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--black);
+}
+.exp-page__body blockquote cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-style: normal;
+  color: var(--grey-500);
+}
+.exp-page__body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: clamp(30px, 4vh, 45px) 0;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+}
+.exp-page__body th,
+.exp-page__body td {
+  padding: 0.85rem 1rem 0.85rem 0;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.6;
+  color: var(--grey-700);
+}
+.exp-page__body th { font-weight: 500; color: var(--black); }
+.exp-page__body .wp-block-separator {
+  margin: clamp(35px, 5vh, 55px) 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+/* Un tableau large déborderait la colonne de texte : il défile sur lui-même. */
+.exp-page__body .wp-block-table { overflow-x: auto; }
+
 /* Dans le corps Gutenberg, « .exp-page__body > p » est plus spécifique que
    « .exp-page__aside » et écraserait sa taille de texte. On la restitue. */
 .exp-page__body > p.exp-page__aside { font-size: 0.88rem; line-height: 1.7; }
@@ -2253,6 +2310,52 @@ ul, ol { list-style: none; }
 }
 .exp-page__gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
 .exp-page__gallery img { aspect-ratio: 4/5; object-fit: cover; }
+
+/* --- FAQ rédigée dans l'éditeur ---
+   Les questions sont maintenant des blocs « Détails » de WordPress, saisis avec
+   le reste de la page : le cabinet peut les enrichir au fil des dossiers, ce
+   qu'une FAQ inscrite dans le gabarit interdisait. Ces règles leur redonnent
+   l'apparence des accordéons d'origine. */
+.exp-page__body .wp-block-details {
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+.exp-page__body .wp-block-details:last-of-type { border-bottom: 1px solid var(--border); }
+.exp-page__body .wp-block-details summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: 1.4rem 3rem 1.4rem 0;
+  font-family: var(--sans);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--black);
+}
+.exp-page__body .wp-block-details summary::-webkit-details-marker { display: none; }
+.exp-page__body .wp-block-details summary::after {
+  content: '';
+  position: absolute;
+  right: 0.2rem;
+  top: 1.85rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform 0.35s var(--ease);
+}
+.exp-page__body .wp-block-details[open] summary::after { transform: translateY(25%) rotate(-135deg); }
+.exp-page__body .wp-block-details p {
+  font-family: var(--sans);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.9;
+  color: var(--grey-700);
+  margin: 0 0 1.6rem;
+  max-width: 720px;
+}
+/* Le titre qui ouvre la FAQ ne doit pas coller à la première question. */
+.exp-page__body > h2 + .wp-block-details { border-top: none; }
 
 /* --- FAQ --- */
 .exp-faq { padding: clamp(60px, 9vh, 110px) 0; background: var(--off-white); border-top: 1px solid var(--border); }

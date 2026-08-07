@@ -48,3 +48,31 @@
 <!-- wp:paragraph {"className":"exp-page__aside"} -->
 <p class="exp-page__aside">À lire également : <a href="/assurance-emprunteur-tableau-croise-cour-de-cassation/">Assurance emprunteur : la Cour de cassation encadre le tableau croisé</a></p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Ce que les emprunteurs demandent le plus souvent</h2>
+<!-- /wp:heading -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>L’assureur invoque une fausse déclaration : puis-je encore agir ?</summary>
+<!-- wp:paragraph -->
+<p>Oui. La fausse déclaration intentionnelle suppose la preuve, à la charge de l’assureur, d’une réponse inexacte à une question précise posée lors de la souscription et d’une intention de tromper. À défaut, la garantie reste due. Un examen du questionnaire de santé est indispensable.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Mon taux d’invalidité est inférieur au seuil du contrat. Ai-je un recours ?</summary>
+<!-- wp:paragraph -->
+<p>Le taux retenu par le médecin de l’assureur n’est pas définitif. Une seconde lecture médicale indépendante permet souvent de le contester, notamment lorsque le barème appliqué ou les pièces retenues sont discutables.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Comment se faire indemniser après un refus de l’assurance emprunteur ?</summary>
+<!-- wp:paragraph -->
+<p>La première étape consiste à obtenir la motivation écrite du refus, puis à réunir le contrat, la notice, le questionnaire de santé et les pièces médicales. Ces éléments permettent de vérifier si le motif invoqué, seuil d’invalidité ou fausse déclaration, est juridiquement fondé, avant d’engager un recours amiable ou judiciaire.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->

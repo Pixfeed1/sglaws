@@ -224,11 +224,21 @@ function sg_render_textes_page() {
                 <table class="form-table">
                     <tr><th>Introduction</th><td><textarea name="sg_site_texts[exp_intro]" rows="2" class="large-text"><?php echo $ta('exp_intro', 'Le cabinet déploie ses compétences pour la protection des intérêts de ses clients dans l\'ensemble des domaines du droit, avec une exigence constante d\'efficacité.'); ?></textarea></td></tr>
                 </table>
-                <?php for ($i = 1; $i <= 6; $i++) : ?>
-                <h3>Domaine <?php echo $i; ?></h3>
+                <?php for ($i = 1; $i <= SG_MAX_EXPERTISES; $i++) : ?>
+                <h3>Domaine <?php echo $i; ?><?php echo $i > 6 ? ' (facultatif)' : ''; ?></h3>
                 <table class="form-table">
                     <tr><th>Titre</th><td><input type="text" name="sg_site_texts[exp_d<?php echo $i; ?>_title]" value="<?php echo $t("exp_d{$i}_title"); ?>" class="large-text"><p class="description">Ce titre est utilisé sur la page liste ET la page détail.</p></td></tr>
                     <tr><th>Description (liste)</th><td><textarea name="sg_site_texts[exp_d<?php echo $i; ?>_desc]" rows="2" class="large-text"><?php echo $ta("exp_d{$i}_desc"); ?></textarea></td></tr>
+                    <tr><th>Page liée</th><td>
+                        <?php wp_dropdown_pages([
+                            'name'              => "sg_site_texts[exp_d{$i}_page]",
+                            'selected'          => (int) ($texts["exp_d{$i}_page"] ?? 0),
+                            'show_option_none'  => '— Page par défaut —',
+                            'option_none_value' => '0',
+                            'post_status'       => ['publish', 'draft'],
+                        ]); ?>
+                        <p class="description">Page ouverte par cette carte, sur l'accueil et la page Expertise. Si vous réordonnez les domaines, pensez à réaffecter la page.</p>
+                    </td></tr>
                 </table>
                 <?php endfor; ?>
 
