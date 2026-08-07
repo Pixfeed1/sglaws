@@ -369,3 +369,79 @@ function sg_render_textes_page() {
     </script>
     <?php
 }
+
+/**
+ * Page de diagnostic — lecture seule.
+ *
+ * Un texte affiché sur le site provient soit de l'option sg_site_texts, soit,
+ * si la clé y est absente ou vide, de la valeur par défaut inscrite dans le
+ * gabarit. Le HTML rendu ne permet pas de distinguer les deux : cette page
+ * montre l'état réel de l'option.
+ */
+add_action('admin_menu', function () {
+    add_submenu_page(
+        'sg-textes',
+        'Diagnostic des textes',
+        'Diagnostic',
+        'edit_theme_options',
+        'sg-textes-diagnostic',
+        'sg_render_diagnostic_page'
+    );
+});
+
+function sg_render_diagnostic_page() {
+    $raw    = get_option('sg_site_texts', null);
+    $saved  = is_array($raw) ? $raw : [];
+    $filled = array_filter($saved, function ($v) { return trim((string) $v) !== ''; });
+    ksort($filled);
+    ?>
+    <div class="wrap">
+        <h1>Diagnostic des textes</h1>
+        <p class="description">
+            Page en lecture seule. Elle n'enregistre rien et ne modifie rien.
+            Elle affiche ce qui est réellement stocké en base de données, par
+            opposition aux valeurs par défaut inscrites dans les gabarits.
+        </p>
+
+        <?php if ($raw === null) : ?>
+            <div class="notice notice-info inline"><p>
+                <strong>L'option <code>sg_site_texts</code> n'existe pas.</strong>
+                L'écran Textes n'a jamais été enregistré. Le site affiche donc
+                les valeurs par défaut des gabarits.
+            </p></div>
+        <?php else : ?>
+            <div class="notice notice-warning inline"><p>
+                <strong><?php echo count($filled); ?> clé<?php echo count($filled) > 1 ? 's' : ''; ?>
+                enregistrée<?php echo count($filled) > 1 ? 's' : ''; ?> en base</strong>
+                (sur <?php echo count($saved); ?> présentes dans l'option).
+                Ce sont ces valeurs qui s'affichent sur le site : pour ces clés,
+                les valeurs par défaut des gabarits ne sont pas utilisées.
+            </p></div>
+        <?php endif; ?>
+
+        <?php if ($filled) : ?>
+            <h2>Valeurs enregistrées</h2>
+            <table class="widefat striped">
+                <thead><tr><th style="width:220px;">Clé</th><th>Valeur en base</th></tr></thead>
+                <tbody>
+                <?php foreach ($filled as $key => $value) : ?>
+                    <tr>
+                        <td><code><?php echo esc_html($key); ?></code></td>
+                        <td style="word-break:break-word;"><?php echo esc_html($value); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+
+            <h2>Export</h2>
+            <p class="description">Sélectionnez tout le contenu ci-dessous et copiez-le pour le transmettre.</p>
+            <textarea class="large-text code" rows="14" readonly onclick="this.select();"><?php
+                echo esc_textarea(wp_json_encode(
+                    $filled,
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+                ));
+            ?></textarea>
+        <?php endif; ?>
+    </div>
+    <?php
+}
