@@ -4,7 +4,7 @@ Theme URI: https://pixfeed.net
 Description: Thème sur mesure pour le cabinet de Me Seri Gueffie, avocat en droit des assurances au Barreau de Lyon. Design minimaliste, performant et optimisé SEO.
 Author: PixFeed
 Author URI: https://pixfeed.net
-Version: 1.5.0
+Version: 1.5.1
 License: Proprietary
 Text Domain: sg-avocat
 Requires at least: 6.0
@@ -2527,11 +2527,14 @@ ul, ol { list-style: none; }
 /* Sans cette marge, un titre visé par le sommaire se range sous l'en-tête
    collant et devient illisible à l'arrivée. */
 .article-body h2,
-.article-body h3 { scroll-margin-top: 120px; }
+.article-body h3,
+.exp-page__body h2,
+.exp-page__body h3 { scroll-margin-top: 120px; }
 
 /* --- Rail latéral, à partir de 1025px --- */
 @media (min-width: 1025px) {
-  .article__inner.article-layout {
+  .article__inner.article-layout,
+  .exp-page__inner.article-layout {
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
     gap: clamp(40px, 5vw, 90px);
@@ -2541,11 +2544,15 @@ ul, ol { list-style: none; }
 
   /* À droite : seules les colonnes changent de rang. Le balisage reste
      identique, le sommaire demeure premier au clavier. */
-  .article__inner.article-layout--droite {
+  .article__inner.article-layout--droite,
+  .exp-page__inner.article-layout--droite {
     grid-template-columns: minmax(0, 1fr) 220px;
   }
   .article-layout--droite > .sg-toc { grid-column: 2; grid-row: 1; }
   .article-layout--droite > .article-body { grid-column: 1; grid-row: 1; }
+  /* Les pages d'expertise sont plus larges que les articles : la colonne de
+     texte y garde sa mesure, le rail s'ajoute à côté. */
+  .exp-page__inner.article-layout { max-width: 1220px; }
 
   .article-layout > .sg-toc {
     position: sticky;
@@ -2554,9 +2561,10 @@ ul, ol { list-style: none; }
     max-height: calc(100vh - 200px);
     overflow-y: auto;
   }
-  /* Le rail est toujours déployé. Le repli n'a de sens qu'en tête d'article,
-     là où le sommaire pousse le texte vers le bas. */
-  .article-layout > .sg-toc > .sg-toc__list { display: block; }
+  /* Le rail est déployé par le script, qui pose l'attribut open : forcer
+     l'affichage en CSS laisserait l'élément sémantiquement replié, et un
+     lecteur d'écran annoncerait un sommaire fermé alors qu'il est visible.
+     Sans script, le sommaire reste replié mais son résumé demeure cliquable. */
   .article-layout > .sg-toc > .sg-toc__head { padding: 0 0 1.2rem; }
   .article-layout > .sg-toc > .sg-toc__head::after { display: none; }
   .article-layout > .sg-toc > .sg-toc__list { margin-bottom: 0; }

@@ -53,8 +53,11 @@ get_header();
 
 <section class="exp-page">
   <div class="container">
-    <div class="exp-page__inner exp-page__body r">
-      <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+    <div class="exp-page__inner exp-page__body r <?php echo esc_attr(sg_toc_classe()); ?>">
+      <?php while (have_posts()) : the_post(); $sg = sg_toc_article(); ?>
+        <?php echo $sg['sommaire']; ?>
+        <?php echo $sg['sommaire'] !== '' ? '<div class="article-body">' . $sg['contenu'] . '</div>' : $sg['contenu']; ?>
+      <?php endwhile; ?>
     </div>
   </div>
 </section>

@@ -1,12 +1,13 @@
 <?php
 if (!defined('ABSPATH')) exit;
 /**
- * Sommaire d'article — remplace l'extension Easy Table of Contents.
+ * Sommaire — remplace l'extension Easy Table of Contents.
  *
- * Deux réglages par article, dans le panneau latéral de l'éditeur : afficher
- * ou non le sommaire, et de quel côté le placer sur grand écran. En dessous de
- * 1025 px il n'y a pas de place pour un rail latéral : le sommaire redevient
- * un bloc repliable en tête d'article, quel que soit le côté choisi.
+ * Deux réglages, par article comme par page, dans le panneau latéral de
+ * l'éditeur : afficher ou non le sommaire, et de quel côté le placer sur grand
+ * écran. En dessous de 1025 px il n'y a pas la place d'un rail latéral : le
+ * sommaire redevient un bloc repliable en tête de contenu, quel que soit le
+ * côté choisi.
  *
  * @package SG_Avocat
  */
@@ -18,27 +19,29 @@ add_action('init', function () {
     $droit = function () {
         return current_user_can('edit_posts');
     };
-    register_post_meta('post', SG_TOC_META, [
-        'type'          => 'boolean',
-        'single'        => true,
-        'default'       => false,
-        'show_in_rest'  => true,
-        'auth_callback' => $droit,
-    ]);
-    register_post_meta('post', SG_TOC_POSITION, [
-        'type'              => 'string',
-        'single'            => true,
-        'default'           => 'gauche',
-        'show_in_rest'      => true,
-        'auth_callback'     => $droit,
-        'sanitize_callback' => function ($v) {
-            return $v === 'droite' ? 'droite' : 'gauche';
-        },
-    ]);
+    foreach (['post', 'page'] as $type) {
+        register_post_meta($type, SG_TOC_META, [
+            'type'          => 'boolean',
+            'single'        => true,
+            'default'       => false,
+            'show_in_rest'  => true,
+            'auth_callback' => $droit,
+        ]);
+        register_post_meta($type, SG_TOC_POSITION, [
+            'type'              => 'string',
+            'single'            => true,
+            'default'           => 'gauche',
+            'show_in_rest'      => true,
+            'auth_callback'     => $droit,
+            'sanitize_callback' => function ($v) {
+                return $v === 'droite' ? 'droite' : 'gauche';
+            },
+        ]);
+    }
 });
 
 add_action('enqueue_block_editor_assets', function () {
-    if (get_post_type() !== 'post') {
+    if (!in_array(get_post_type(), ['post', 'page'], true)) {
         return;
     }
     wp_enqueue_script(
@@ -99,8 +102,9 @@ function sg_toc_ancrer($contenu) {
 }
 
 /**
- * Balisage du sommaire. Rendu fermé : sur grand écran la feuille de style
- * rouvre la liste, ce qui évite qu'elle clignote à l'ouverture de la page.
+ * Balisage du sommaire. Rendu fermé : c'est le script qui pose l'attribut open
+ * sur grand écran, afin que l'état annoncé aux lecteurs d'écran corresponde à
+ * ce qui est affiché.
  */
 function sg_toc_balisage($entrees) {
     if (count($entrees) < 2) {
@@ -121,7 +125,8 @@ function sg_toc_balisage($entrees) {
 }
 
 /**
- * Contenu de l'article en cours, sommaire compris.
+ * Contenu en cours de rendu, sommaire compris. Vaut pour un article comme pour
+ * une page : c'est au gabarit d'appeler cette fonction plutôt que the_content().
  *
  * @return array{classe:string,sommaire:string,contenu:string}
  */
@@ -146,4 +151,17 @@ function sg_toc_article() {
         'sommaire' => $sommaire,
         'contenu'  => $contenu,
     ];
+}
+
+/**
+ * Classe de disposition à poser sur le conteneur, connue avant l'ouverture de
+ * la boucle. Les gabarits de page ouvrent leur conteneur avant d'appeler
+ * sg_toc_article() : sans cela, la classe arriverait trop tard.
+ */
+function sg_toc_classe() {
+    if (!is_singular() || !get_post_meta(get_queried_object_id(), SG_TOC_META, true)) {
+        return '';
+    }
+    $position = get_post_meta(get_queried_object_id(), SG_TOC_POSITION, true) === 'droite' ? 'droite' : 'gauche';
+    return 'article-layout article-layout--' . $position;
 }

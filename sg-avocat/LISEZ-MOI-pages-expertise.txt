@@ -87,3 +87,21 @@ Leurs valeurs par défaut ont changé et ils basculeraient sinon :
   Accueil > Section Expertise > Tag   (Domaines d'intervention)
   Accueil > Section Contact > Titre   (Échangeons sur votre situation)
   Accueil > Section Contact > Texte   (Chaque situation est unique...)
+
+
+SOMMAIRE (remplace Easy Table of Contents)
+==========================================
+Le sommaire est desormais fourni par le theme. Il s'active
+article par article et page par page : panneau « Sommaire »
+dans la colonne de droite de l'editeur, une case a cocher,
+puis le cote ou le poser sur grand ecran.
+
+IMPORTANT — desactiver l'extension tout de suite
+------------------------------------------------
+Easy Table of Contents s'accroche au meme filtre de contenu
+que le theme. Tant qu'elle reste active, elle ajoutera son
+propre sommaire par-dessus le nouveau. Desactivez-la dans la
+foulee de la mise a jour du theme, pas plus tard.
+
+Les ancres deja posees par l'extension dans les articles sont
+conservees : les liens existants continuent de fonctionner.

@@ -17,12 +17,14 @@ get_header();
 
 <section class="exp-page">
   <div class="container">
-    <div class="exp-page__inner exp-page__body r">
+    <div class="exp-page__inner exp-page__body r <?php echo esc_attr(sg_toc_classe()); ?>">
       <?php
       /* Le texte de cette page se modifie dans WordPress : Pages > (cette page).
          Il n'est plus inscrit dans ce fichier, il survit donc aux mises a jour du theme. */
       while (have_posts()) : the_post();
-          the_content();
+          $sg = sg_toc_article();
+          echo $sg['sommaire'];
+          echo $sg['sommaire'] !== '' ? '<div class="article-body">' . $sg['contenu'] . '</div>' : $sg['contenu'];
       endwhile;
       ?>
     </div>

@@ -243,6 +243,31 @@ document.addEventListener('DOMContentLoaded', () => {
    à l'écran. Sans IntersectionObserver, le sommaire
    reste un simple jeu de liens : rien ne casse.
 ============================================= */
+/* Le rail est déployé sur grand écran, replié en dessous. L'attribut est posé
+   ici plutôt que contourné en CSS : forcer l'affichage laisserait l'élément
+   sémantiquement fermé, et un lecteur d'écran annoncerait un sommaire replié
+   alors qu'il est visible. Seul le franchissement du seuil déclenche la
+   bascule : un sommaire ouvert à la main sur mobile n'est pas refermé. */
+(function () {
+  var sommaire = document.querySelector('.article-layout > .sg-toc');
+  if (!sommaire) return;
+
+  var grandEcran = window.matchMedia('(min-width: 1025px)');
+  var appliquer = function (mq) {
+    if (mq.matches) {
+      sommaire.setAttribute('open', '');
+    } else {
+      sommaire.removeAttribute('open');
+    }
+  };
+  appliquer(grandEcran);
+  if (grandEcran.addEventListener) {
+    grandEcran.addEventListener('change', appliquer);
+  } else if (grandEcran.addListener) {
+    grandEcran.addListener(appliquer);
+  }
+})();
+
 (function () {
   var liens = Array.prototype.slice.call(
     document.querySelectorAll('.article-layout .sg-toc__list a')

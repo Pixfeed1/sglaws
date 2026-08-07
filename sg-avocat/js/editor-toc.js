@@ -29,7 +29,7 @@
       return select('core/editor').getCurrentPostType();
     }, []);
 
-    if (typeArticle !== 'post') {
+    if (typeArticle !== 'post' && typeArticle !== 'page') {
       return null;
     }
 
