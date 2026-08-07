@@ -17,6 +17,8 @@ Template Name: Landing Page
 <body <?php body_class('landing-page'); ?>>
 <?php wp_body_open(); ?>
 
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
 <?php
 $hero_video = get_theme_mod('sg_landing_video', '');
 $hero_image = get_theme_mod('sg_landing_image', 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80');

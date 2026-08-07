@@ -114,6 +114,26 @@ ul, ol { list-style: none; }
 
 /* Reveal helpers */
 .r { opacity: 0; transform: translateY(30px); }
+
+/* Lien d'évitement : hors de l'écran tant qu'il n'a pas le focus. Il permet de
+   sauter le menu au clavier, sans rien changer à l'apparence du site. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.8rem 1.4rem;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
 .lr { overflow: hidden; display: block; }
 .lr span { display: block; transform: translateY(110%); }
 

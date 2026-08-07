@@ -103,14 +103,14 @@ function sg_setup_pages() {
  */
 function sg_setup_expertise_pages() {
     $expertises = [
-        'competences' => ['Domaines d’intervention — en droit des assurances', 'page-competences.php', null, 'Le cabinet Gueffie intervient exclusivement en droit des assurances, au service des assurés. Face à un sinistre, assuré et assureur ne disposent pas des mêmes armes : la compagnie s’appuie sur un réseau d’experts mandatés pour limiter l’indemnisation. L’intervention du cabinet rétablit l’équilibre.'],
+        'competences' => ['Domaines d’intervention en droit des assurances', 'page-competences.php', null, 'Le cabinet Gueffie intervient exclusivement en droit des assurances, au service des assurés. Face à un sinistre, assuré et assureur ne disposent pas des mêmes armes : la compagnie s’appuie sur un réseau d’experts mandatés pour limiter l’indemnisation. L’intervention du cabinet rétablit l’équilibre.'],
         'avocat-assurance-emprunteur' => ['Refus d’assurance emprunteur — contester le refus de garantie', 'page-exp-assurance-emprunteur.php', 'assurance-emprunteur', 'Vous avez souscrit une assurance emprunteur pour garantir le remboursement de votre crédit en cas d’accident de la vie. Aujourd’hui, votre état de santé ne vous permet plus de travailler, mais l’assureur refuse de prendre en charge vos mensualités.'],
         'avocat-prevoyance-refus-garantie' => ['Avocat en assurance prévoyance — contester le refus d’indemnisation', 'page-exp-prevoyance.php', 'prevoyance', 'Un contrat de prévoyance, individuel ou collectif, a une fonction simple : prendre le relais de vos revenus lorsque la maladie ou l’accident vous empêche de travailler. Lorsque l’assureur refuse cette garantie, alors que vous êtes en arrêt de travail ou reconnu invalide, les conséquences sont immédiates et souvent lourdes.'],
-        'avocat-catastrophe-naturelle-assurance' => ['Avocat en assurance — catastrophe naturelle', 'page-exp-catastrophe-naturelle.php', 'catastrophe-naturelle', 'L’arrêté de reconnaissance de l’état de catastrophe naturelle est publié. Vous pensez la prise en charge acquise. Pourtant, la compagnie conteste le lien entre les dommages affectant votre bien et l’événement climatique reconnu.'],
-        'avocat-assurance-construction-dommage-ouvrage' => ['Avocat en assurance construction — et dommage-ouvrage', 'page-exp-construction.php', 'construction', 'Votre bien est endommagé. L’assureur dommages-ouvrage tarde à répondre, refuse la prise en charge, ou conteste l’origine des désordres.'],
-        'avocat-responsabilite-civile-professionnelle' => ['Avocat en responsabilité — civile professionnelle', 'page-exp-rc-professionnelle.php', 'rc-professionnelle', 'Votre responsabilité professionnelle est mise en cause par un client ou un tiers, à la suite d’un dommage survenu dans le cadre de votre activité. L’enjeu est double : votre garantie, et la continuité de votre exercice.'],
+        'avocat-catastrophe-naturelle-assurance' => ['Avocat en assurance catastrophe naturelle', 'page-exp-catastrophe-naturelle.php', 'catastrophe-naturelle', 'L’arrêté de reconnaissance de l’état de catastrophe naturelle est publié. Vous pensez la prise en charge acquise. Pourtant, la compagnie conteste le lien entre les dommages affectant votre bien et l’événement climatique reconnu.'],
+        'avocat-assurance-construction-dommage-ouvrage' => ['Avocat en assurance construction et dommage-ouvrage', 'page-exp-construction.php', 'construction', 'Votre bien est endommagé. L’assureur dommages-ouvrage tarde à répondre, refuse la prise en charge, ou conteste l’origine des désordres.'],
+        'avocat-responsabilite-civile-professionnelle' => ['Avocat en responsabilité civile professionnelle', 'page-exp-rc-professionnelle.php', 'rc-professionnelle', 'Votre responsabilité professionnelle est mise en cause par un client ou un tiers, à la suite d’un dommage survenu dans le cadre de votre activité. L’enjeu est double : votre garantie, et la continuité de votre exercice.'],
         'avocat-risque-industriel-assurance' => ['Avocat en risque industriel — sinistre et assurance', 'page-exp-risque-industriel.php', 'risque-industriel', 'Un sinistre majeur survient sur votre site ou implique l’un de vos produits. Plusieurs assureurs et responsables sont alors susceptibles d’être mis en cause.'],
-        'avocat-accident-de-la-route-indemnisation' => ['Avocat en indemnisation des victimes — d’accident de la route', 'page-exp-accident-route.php', 'accident-route', 'Après un accident de la route, la loi impose à l’assureur de vous présenter une offre d’indemnisation. Cette offre est souvent inférieure à ce que votre préjudice justifie.', 'draft'],
+        'avocat-accident-de-la-route-indemnisation' => ['Avocat en indemnisation des victimes d’accident de la route', 'page-exp-accident-route.php', 'accident-route', 'Après un accident de la route, la loi impose à l’assureur de vous présenter une offre d’indemnisation. Cette offre est souvent inférieure à ce que votre préjudice justifie.', 'draft'],
     ];
 
     foreach ($expertises as $slug => $e) {
@@ -155,10 +155,38 @@ add_action('admin_notices', function () {
         return;
     }
     printf(
-        '<div class="notice notice-warning"><p><strong>Thème S-G Avocat.</strong> La page « %s » n\'utilise pas le modèle « Domaines d\'intervention (page chapeau) » : les six domaines ne s\'affichent donc pas comme prévu. <a href="%s">Ouvrir la page</a>, puis choisir ce modèle dans Attributs de page.</p></div>',
+        '<div class="notice notice-warning"><p><strong>Thème S-G Avocat.</strong> La page « %s » n\'utilise pas le modèle « Domaines d\'intervention (page chapeau) » : les six domaines ne s\'affichent donc pas comme prévu.</p><p><a href="%s" class="button button-primary">Appliquer le modèle</a> <a href="%s" class="button">Ouvrir la page</a></p></div>',
         esc_html($page->post_title),
+        esc_url(wp_nonce_url(add_query_arg('sg_appliquer_chapeau', $page->ID, admin_url()), 'sg_chapeau_' . $page->ID)),
         esc_url((string) get_edit_post_link($page->ID))
     );
+});
+
+/**
+ * Applique le gabarit chapeau à la page Compétences, sur clic explicite.
+ *
+ * Le thème ne modifie jamais une page existante de lui-même : changer le modèle
+ * d'une page que quelqu'un a montée à la main serait intrusif. Mais laisser la
+ * seule issue être une manipulation dans deux menus l'est aussi. D'où ce
+ * bouton : le geste reste décidé par l'utilisateur, il ne lui coûte qu'un clic.
+ */
+add_action('admin_init', function () {
+    if (empty($_GET['sg_appliquer_chapeau'])) {
+        return;
+    }
+    $id = (int) $_GET['sg_appliquer_chapeau'];
+    if (!current_user_can('edit_post', $id) || !check_admin_referer('sg_chapeau_' . $id)) {
+        return;
+    }
+    update_post_meta($id, '_wp_page_template', 'page-competences.php');
+    wp_safe_redirect(add_query_arg('sg_chapeau_ok', '1', admin_url()));
+    exit;
+});
+
+add_action('admin_notices', function () {
+    if (!empty($_GET['sg_chapeau_ok'])) {
+        echo '<div class="notice notice-success is-dismissible"><p>Le modèle « Domaines d\'intervention (page chapeau) » est appliqué.</p></div>';
+    }
 });
 
 /* =============================================

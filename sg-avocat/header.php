@@ -12,6 +12,8 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
 <?php $header_class = is_front_page() ? 'header' : 'header header--solid'; ?>
 
 <header class="<?php echo $header_class; ?>" id="header">
