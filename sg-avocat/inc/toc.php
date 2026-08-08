@@ -198,3 +198,14 @@ function sg_toc_classe() {
     $position = get_post_meta(get_queried_object_id(), SG_TOC_POSITION, true) === 'droite' ? 'droite' : 'gauche';
     return 'article-layout article-layout--' . $position;
 }
+
+/**
+ * La page en cours porte-t-elle un contenu rédigé dans WordPress ?
+ *
+ * Un gabarit qui ouvre sa section sans le vérifier laisse, sur une page vide,
+ * une bande blanche de plusieurs centaines de pixels : l'habillage de la
+ * section s'affiche même lorsqu'il n'y a rien à l'intérieur.
+ */
+function sg_a_du_contenu() {
+    return trim((string) get_post_field('post_content', get_queried_object_id())) !== '';
+}

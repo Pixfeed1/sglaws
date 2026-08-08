@@ -51,6 +51,7 @@ get_header();
   </div>
 </section>
 
+<?php if (sg_a_du_contenu()) : ?>
 <section class="exp-page">
   <div class="container">
     <div class="exp-page__inner exp-page__body r <?php echo esc_attr(sg_toc_classe()); ?>">
@@ -61,5 +62,6 @@ get_header();
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
