@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
  * @author PixFeed (pixfeed.net)
  */
 
-define('SG_VERSION', '1.6.3');
+define('SG_VERSION', '1.7.0');
 define('SG_DIR', get_template_directory());
 define('SG_URI', get_template_directory_uri());
 
