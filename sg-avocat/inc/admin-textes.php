@@ -304,7 +304,7 @@ function sg_render_textes_page() {
                     <tr><th>Biographie</th><td><textarea name="sg_site_texts[avocat_bio]" rows="6" class="large-text"><?php echo $ta('avocat_bio', '<p>Passionné par le droit et animé par un sens profond de la justice, Me Seri Gueffie met son expertise au service de clients confrontés à des enjeux juridiques complexes.</p><p>Son approche allie rigueur analytique et vision stratégique, avec une attention constante portée à la dimension humaine de chaque affaire. Il défend avec conviction les intérêts de ses clients devant toutes les juridictions.</p>'); ?></textarea><p class="description">Balises HTML autorisées : &lt;p&gt;, &lt;em&gt;, &lt;strong&gt;</p></td></tr>
                     <tr><th>Barreau</th><td><input type="text" name="sg_site_texts[avocat_barreau]" value="<?php echo $t('avocat_barreau', 'Barreau de Lyon'); ?>" class="regular-text"></td></tr>
                     <tr><th>Serment</th><td><input type="text" name="sg_site_texts[avocat_serment]" value="<?php echo $t('avocat_serment', '6 décembre 2021'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Spécialité</th><td><input type="text" name="sg_site_texts[avocat_specialite]" value="<?php echo $t('avocat_specialite', 'Droit des assurances'); ?>" class="regular-text"></td></tr>
+                    <tr><th>Matière</th><td><input type="text" name="sg_site_texts[avocat_specialite]" value="<?php echo $t('avocat_specialite', 'Droit des assurances'); ?>" class="regular-text"><p class="description">Affichée sous le libellé « Matière » sur la fiche. Éviter les mots « spécialité » et « spécialiste » : ce sont des mentions protégées, réservées aux titulaires du certificat délivré par le CNB.</p></td></tr>
                     <tr><th>Formation</th><td><input type="text" name="sg_site_texts[avocat_formation]" value="<?php echo $t('avocat_formation', 'Master en Droit — Université de Paris'); ?>" class="large-text"></td></tr>
                     <tr><th>Langues</th><td><input type="text" name="sg_site_texts[avocat_langues]" value="<?php echo $t('avocat_langues', 'Français, Anglais'); ?>" class="regular-text"></td></tr>
                 </table>
@@ -340,7 +340,7 @@ function sg_render_textes_page() {
                 <h3>Auteur (affiché sous chaque article)</h3>
                 <table class="form-table">
                     <tr><th>Nom de l'auteur</th><td><input type="text" name="sg_site_texts[article_author_name]" value="<?php echo $t('article_author_name', 'Me Seri Gueffie'); ?>" class="regular-text"></td></tr>
-                    <tr><th>Rôle / spécialité</th><td><input type="text" name="sg_site_texts[article_author_role]" value="<?php echo $t('article_author_role', 'Avocat au Barreau de Lyon · Droit des assurances'); ?>" class="large-text"></td></tr>
+                    <tr><th>Rôle / matière</th><td><input type="text" name="sg_site_texts[article_author_role]" value="<?php echo $t('article_author_role', 'Avocat au Barreau de Lyon · Droit des assurances'); ?>" class="large-text"></td></tr>
                 </table>
 
                 <h3>Sommaire</h3>

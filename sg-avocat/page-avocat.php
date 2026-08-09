@@ -44,7 +44,7 @@ $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'large') : 'http
           <?php endif; ?>
           <?php $specialite = sg_text('avocat_specialite', 'Droit des assurances'); if ($specialite) : ?>
           <div class="team__meta-row">
-            <span class="team__meta-label">Spécialité</span>
+            <span class="team__meta-label">Matière</span>
             <span class="team__meta-value"><?php echo esc_html($specialite); ?></span>
           </div>
           <?php endif; ?>
